@@ -65,7 +65,7 @@
         }
 
         header h1 {
-            font-size: 18px;
+            font-size: 26px;
             margin: 0 0 0 6px;
             font-weight: 600;
             color: #2b3b43
@@ -74,7 +74,7 @@
         header small {
             display: block;
             color: var(--muted);
-            font-size: 13px;
+            font-size: 15px;
             margin-top: 2px
         }
 
@@ -102,7 +102,7 @@
         .form-label {
             width: 220px;
             color: var(--muted);
-            font-size: 13px
+            font-size: 15px
         }
 
         .select,
@@ -129,7 +129,7 @@
             border: 1px solid #e0e4e7;
             border-radius: 6px;
             background: #fbfdfe;
-            font-size: 14px;
+            font-size: 15px;
             color: #23303a;
         }
 
@@ -150,12 +150,12 @@
             font-weight: 600;
             color: #2b3b43;
             margin-bottom: 8px;
-            font-size: 14px
+            font-size: 16px
         }
 
         .muted {
             color: var(--muted);
-            font-size: 15px
+            font-size: 16px
         }
 
         .price-display {
@@ -177,14 +177,23 @@
         }
 
         .price-card .label {
-            font-size: 12px;
+            font-size: 15px;
             color: var(--muted)
         }
 
         .price-card .value {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 700;
             color: #1f3b4a
+        }
+
+        .linha {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            gap: 10px;
+            width: 460px;
         }
 
         /* Right column - highlights + result box */
@@ -235,7 +244,7 @@
         }
 
         .highlight .label {
-            font-size: 13px;
+            font-size: 15px;
             color: var(--muted)
         }
 
@@ -289,7 +298,7 @@
             border-radius: 999px;
             background: #f3f6f8;
             color: var(--muted);
-            font-size: 13px
+            font-size: 15px
         }
 
         .tab.active {
@@ -319,7 +328,7 @@
         }
 
         .small {
-            font-size: 13px;
+            font-size: 15px;
             color: var(--muted)
         }
 
@@ -334,7 +343,7 @@
         footer.note {
             grid-column: 1/-1;
             color: var(--muted);
-            font-size: 13px;
+            font-size: 15px;
             margin-top: 6px
         }
 
@@ -401,140 +410,128 @@
             <div class="boxed-section" style="margin-top:10px">
                 <div class="section-title">Créditos e reduções</div>
 
-                <!-- (-) Crédito PIS/COFINS -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">(-) Crédito PIS/COFINS:</div>
-                    <div style="flex:0 0 120px;">
+                <!-- (-) Crédito PIS/COFINS) -->
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">(-) Crédito PIS/COFINS:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 7,40</div>
+                    <div style="width:100px; text-align:right;" class="small muted">R$ 1000,40</div>
                 </div>
 
                 <!-- (-) Crédito ICMS -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">(-) Crédito ICMS:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">(-) Crédito ICMS:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 20,00</div>
+                    <div style="width:100px; text-align:right;" class="small muted">R$ 20,00</div>
                 </div>
 
                 <!-- Redução da base de cálculo -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">Redução da base de cálculo:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">Redução da base de cálculo:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px;"></div>
+                    <div style="width:100px;"></div>
                 </div>
 
                 <!-- (+) ICMS ST -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted"> (+) ICMS ST:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">(+ ) ICMS ST:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 0,00</div>
+                    <div style="width:100px; text-align:right;" class="small muted">R$ 0,00</div>
                 </div>
 
                 <!-- Redução da base de cálculo ST -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">Redução da base de cálculo ST:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">Redução da base de cálculo ST:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px;"></div>
+                    <div style="width:100px;"></div>
                 </div>
 
                 <!-- (+) IPI -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">(+) IPI:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">(+ ) IPI:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 0,00</div>
+                    <div style="width:100px; text-align:right;" class="small muted">R$ 0,00</div>
                 </div>
 
             </div>
+
 
             <!-- BOX de Impostos de Saída -->
             <div class="boxed-section" style="margin-top:10px">
                 <div class="section-title">Tributos na venda</div>
 
                 <!-- PIS/COFINS Venda -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">PIS/COFINS Venda:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">PIS/COFINS Venda:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 0,75</div>
+                    <div style="width:100px; text-align:right;" class="small muted">R$ 0,75</div>
                 </div>
 
                 <!-- ICMS Venda -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">ICMS Venda:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">ICMS Venda:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 2,04</div>
+                    <div style="width:100px; text-align:right;" class="small muted">R$ 2,04</div>
                 </div>
 
                 <!-- CBS Alíquota -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">CBS Alíquota:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">CBS Alíquota:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px;"></div>
+                    <div style="width:100px;"></div>
                 </div>
 
                 <!-- CBS Redução Alíquota -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">CBS Redução Alíquota:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">CBS Redução Alíquota:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px;"></div>
+                    <div style="width:100px;"></div>
                 </div>
 
                 <!-- IBS UF Alíquota -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">IBS UF Alíquota:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">IBS UF Alíquota:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px;"></div>
+                    <div style="width:100px;"></div>
                 </div>
 
                 <!-- IBS UF Redução Alíquota -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">IBS UF Redução Alíquota:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">IBS UF Redução Alíquota:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px;"></div>
+                    <div style="width:100px;"></div>
                 </div>
 
                 <!-- IBS Mun -->
-                <div class="linha"
-                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
-                    <div style="flex:1; text-align:right;" class="small muted">IBS Mun:</div>
-                    <div style="flex:0 0 120px;">
+                <div class="linha">
+                    <div style="width:220px; text-align:right;" class="small muted">IBS Mun:</div>
+                    <div style="width:120px; text-align:center;">
                         <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="flex:0 0 60px;"></div>
+                    <div style="width:100px;"></div>
                 </div>
 
                 <div style="display:flex; justify-content:flex-end; margin-top:12px;">
