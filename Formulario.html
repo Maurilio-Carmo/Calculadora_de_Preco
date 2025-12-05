@@ -4,363 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Calculadora de Margem e Preço - Mockup</title>
+    <title>Calculadora de Margem e Preço</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #f6f7f9;
-            --panel: #ffffff;
-            --muted: #8b9198;
-            --accent: #2d6ea7;
-            --green: #57b86a;
-            --orange: #f6a623;
-            --light: #eef2f4;
-            --card-shadow: 0 6px 18px rgba(30, 40, 50, 0.06);
-            --radius: 15px;
-        }
-
-        * {
-            box-sizing: border-box
-        }
-
-        body {
-            font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            margin: 0;
-            background: linear-gradient(180deg, var(--bg), #eef0f2);
-            color: #263238;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            padding: 28px;
-        }
-
-        .container {
-            max-width: 1180px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 24px;
-        }
-
-        header {
-            grid-column: 1/-1;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 6px;
-        }
-
-        header .icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
-            background: #2e7d32;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            box-shadow: var(--card-shadow);
-        }
-
-        header h1 {
-            font-size: 26px;
-            margin: 0 0 0 6px;
-            font-weight: 600;
-            color: #2b3b43
-        }
-
-        header small {
-            display: block;
-            color: var(--muted);
-            font-size: 15px;
-            margin-top: 2px
-        }
-
-        /* Left panel */
-        .card {
-            background: var(--panel);
-            border-radius: var(--radius);
-            box-shadow: var(--card-shadow);
-            padding: 18px;
-        }
-
-        .left {
-            padding: 18px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 12px;
-            align-items: center
-        }
-
-        .form-label {
-            width: 220px;
-            color: var(--muted);
-            font-size: 15px
-        }
-
-        .select,
-        .input {
-            flex: 1;
-        }
-
-        select,
-        input[type="text"],
-        input[type="number"],
-        input[type="date"] {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #e0e4e7;
-            border-radius: 6px;
-            background: #fbfdfe;
-            font-size: 14px;
-            color: #23303a;
-        }
-
-        .small-input {
-            width: 100%;
-            padding: 8px 10px;
-            border: 1px solid #e0e4e7;
-            border-radius: 6px;
-            background: #fbfdfe;
-            font-size: 15px;
-            color: #23303a;
-        }
-
-        .two-cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px
-        }
-
-        .boxed-section {
-            border: 1px solid #edf1f3;
-            border-radius: 8px;
-            padding: 12px;
-            background: linear-gradient(180deg, #fff, #fbfdff);
-        }
-
-        .section-title {
-            font-weight: 600;
-            color: #2b3b43;
-            margin-bottom: 8px;
-            font-size: 16px
-        }
-
-        .muted {
-            color: var(--muted);
-            font-size: 16px
-        }
-
-        .price-display {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .price-card {
-            flex: 1;
-            border-radius: 8px;
-            padding: 12px;
-            background: linear-gradient(180deg, #fff, #f8fbfc);
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
-        }
-
-        .price-card .label {
-            font-size: 15px;
-            color: var(--muted)
-        }
-
-        .price-card .value {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1f3b4a
-        }
-
-        .linha {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 6px;
-            gap: 10px;
-            width: 460px;
-        }
-
-        /* Right column - highlights + result box */
-        .right {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .highlights {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-        }
-
-        .highlight {
-            padding: 14px;
-            border-radius: 8px;
-            background: linear-gradient(180deg, #fff, #fafcff);
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
-        }
-
-        .icon-circle {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white
-        }
-
-        .ic-buy {
-            background: var(--orange)
-        }
-
-        .ic-sell {
-            background: #89d18a
-        }
-
-        .ic-profit {
-            background: #5aa2ff
-        }
-
-        .highlight .label {
-            font-size: 15px;
-            color: var(--muted)
-        }
-
-        .highlight .amt {
-            font-weight: 700;
-            font-size: 18px
-        }
-
-        .result-box {
-            background: var(--panel);
-            border-radius: 8px;
-            padding: 12px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .result-list {
-            display: grid;
-            gap: 6px
-        }
-
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 10px;
-            border-radius: 6px;
-            background: linear-gradient(180deg, #fff, #fbfbfc);
-            border: 1px solid #f1f3f4
-        }
-
-        .result-item strong {
-            font-weight: 600
-        }
-
-        .result-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px dashed #eef2f3
-        }
-
-        .tabs {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 8px
-        }
-
-        .tab {
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: #f3f6f8;
-            color: var(--muted);
-            font-size: 15px
-        }
-
-        .tab.active {
-            background: #e9faf0;
-            color: #2a7b3a;
-            border: 1px solid #e6f3ea
-        }
-
-        .calculate {
-            margin-top: 6px;
-            background: #2e7d32;
-            color: white;
-            padding: 10px 14px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.12);
-        }
-
-        /* small helper styles to mimic fields grid */
-        .fields-grid {
-            display: grid;
-            grid-template-columns: 1fr 120px;
-            gap: 10px;
-            align-items: center
-        }
-
-        .small {
-            font-size: 15px;
-            color: var(--muted)
-        }
-
-        .badge {
-            background: #eef6ff;
-            border-radius: 6px;
-            padding: 6px 8px;
-            font-weight: 600;
-            display: inline-block
-        }
-
-        footer.note {
-            grid-column: 1/-1;
-            color: var(--muted);
-            font-size: 15px;
-            margin-top: 6px
-        }
-
-        /* responsive */
-        @media (max-width:980px) {
-            .container {
-                grid-template-columns: 1fr;
-                padding: 12px
-            }
-
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -374,232 +21,209 @@
             </div>
         </header>
 
-        <!-- LEFT: formulário complexo -->
+        <!-- LEFT PANEL -->
         <div class="card left">
+
+            <!-- Preço + Margem + CMV -->
             <div style="display:flex;gap:24px;align-items:center;justify-content:space-between">
 
-                <!-- Preço de Compra -->
                 <div style="flex:1">
                     <div class="section-title">Preço de compra:</div>
                     <div style="display:flex;gap:8px;align-items:center">
                         <div class="badge">R$</div>
-                        <input class="input" type="number" placeholder="0,00" />
+                        <input id="precoCompra" type="decimal" class="input" placeholder="0,00" />
                     </div>
                 </div>
 
-                <!-- Margem Desejada -->
                 <div style="flex:1;">
                     <div class="section-title">Margem desejada:</div>
                     <div style="display:flex;gap:8px;align-items:center">
-                        <input type="number" placeholder="0,00" class="input" />
+                        <input id="margemDesejada" type="decimal" class="input" placeholder="0,00" />
                         <div class="badge">%</div>
                     </div>
                 </div>
 
-                <!-- CMV -->
                 <div style="flex:1">
                     <div class="section-title">CMV:</div>
                     <div style="display:flex;gap:8px;align-items:center">
-                        <div class="badge">R$</div>
-                        <input type="number" placeholder="0,00" class="input" disabled />
+                        <input id="cmv" type="decimal" class="input" placeholder="0,00" disabled />
                     </div>
                 </div>
             </div>
 
-            <!-- BOX de Impostos de Entrada -->
-            <div class="boxed-section" style="margin-top:10px">
+            <!-- BOX: Impostos de Entrada -->
+            <div class="boxed-section">
                 <div class="section-title">Créditos e reduções</div>
 
-                <!-- (-) Crédito PIS/COFINS) -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">(-) Crédito PIS/COFINS:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px; text-align:right;" class="small muted">R$ 1000,40</div>
+                    <div class="col-label small muted">(-) Crédito PIS/COFINS:</div>
+                    <div class="col-input">
+                        <input id="creditoPisCofins" type="decimal" class="small-input"></div>
+                    <div class="col-value small muted">R$ 1000,40</div>
                 </div>
 
-                <!-- (-) Crédito ICMS -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">(-) Crédito ICMS:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px; text-align:right;" class="small muted">R$ 20,00</div>
+                    <div class="col-label small muted">(-) Crédito ICMS:</div>
+                    <div class="col-input">
+                        <input id="creditoIcms" type="decimal" class="small-input"></div>
+                    <div class="col-value small muted">R$ 20,00</div>
                 </div>
 
-                <!-- Redução da base de cálculo -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">Redução da base de cálculo:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px;"></div>
+                    <div class="col-label small muted">Red. da base de cálculo:</div>
+                    <div class="col-input">
+                        <input id="reducaoBcIcms" type="decimal" class="small-input"></div>
+                    <div class="col-value"></div>
                 </div>
 
-                <!-- (+) ICMS ST -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">(+ ) ICMS ST:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px; text-align:right;" class="small muted">R$ 0,00</div>
+                    <div class="col-label small muted"> (+) ICMS ST:</div>
+                    <div class="col-input">
+                        <input id="icmsSt" type="decimal" class="small-input"></div>
+                    <div class="col-value small muted">R$ 0,00</div>
                 </div>
 
-                <!-- Redução da base de cálculo ST -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">Redução da base de cálculo ST:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px;"></div>
+                    <div class="col-label small muted">Red. da base de cálculo ST:</div>
+                    <div class="col-input">
+                        <input id="reducaoBcSt" type="decimal" class="small-input"></div>
+                    <div class="col-value"></div>
                 </div>
 
-                <!-- (+) IPI -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">(+ ) IPI:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px; text-align:right;" class="small muted">R$ 0,00</div>
+                    <div class="col-label small muted">(+) IPI:</div>
+                    <div class="col-input">
+                        <input id="ipi" type="decimal" class="small-input"></div>
+                    <div class="col-value small muted">R$ 0,00</div>
                 </div>
 
             </div>
 
-
-            <!-- BOX de Impostos de Saída -->
-            <div class="boxed-section" style="margin-top:10px">
+            <!-- BOX: Impostos de Saída -->
+            <div class="boxed-section">
                 <div class="section-title">Tributos na venda</div>
 
-                <!-- PIS/COFINS Venda -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">PIS/COFINS Venda:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px; text-align:right;" class="small muted">R$ 0,75</div>
+                    <div class="col-label small muted">PIS/COFINS Venda:</div>
+                    <div class="col-input">
+                        <input id="vendaPisCofins" type="decimal" class="small-input"></div>
+                    <div class="col-value small muted">R$ 0,75</div>
                 </div>
 
-                <!-- ICMS Venda -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">ICMS Venda:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px; text-align:right;" class="small muted">R$ 2,04</div>
+                    <div class="col-label small muted">ICMS Venda:</div>
+                    <div class="col-input">
+                        <input id="vendaIcms" type="decimal" class="small-input"></div>
+                    <div class="col-value small muted">R$ 2,04</div>
                 </div>
 
-                <!-- CBS Alíquota -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">CBS Alíquota:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px;"></div>
+                    <div class="col-label small muted">Red. da base de cálculo Saida:</div>
+                    <div class="col-input">
+                        <input id="saidaReducaoBc" type="decimal" class="small-input"></div>
+                    <div class="col-value"></div>
                 </div>
 
-                <!-- CBS Redução Alíquota -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">CBS Redução Alíquota:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px;"></div>
+                    <div class="col-label small muted">CBS Alíquota:</div>
+                    <div class="col-input">
+                        <input id="" type="decimal" class="small-input"></div>
+                    <div class="col-value"></div>
                 </div>
 
-                <!-- IBS UF Alíquota -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">IBS UF Alíquota:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px;"></div>
+                    <div class="col-label small muted">CBS Redução Alíquota:</div>
+                    <div class="col-input">
+                        <input id="" type="decimal" class="small-input"></div>
+                    <div class="col-value"></div>
                 </div>
 
-                <!-- IBS UF Redução Alíquota -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">IBS UF Redução Alíquota:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px;"></div>
+                    <div class="col-label small muted">IBS UF Alíquota:</div>
+                    <div class="col-input">
+                        <input id="" type="decimal" class="small-input"></div>
+                    <div class="col-value"></div>
                 </div>
 
-                <!-- IBS Mun -->
                 <div class="linha">
-                    <div style="width:220px; text-align:right;" class="small muted">IBS Mun:</div>
-                    <div style="width:120px; text-align:center;">
-                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
-                    </div>
-                    <div style="width:100px;"></div>
+                    <div class="col-label small muted">IBS UF Redução Alíquota:</div>
+                    <div class="col-input">
+                        <input id="" type="decimal" class="small-input"></div>
+                    <div class="col-value"></div>
                 </div>
 
-                <div style="display:flex; justify-content:flex-end; margin-top:12px;">
-                    <button class="calculate" onclick="calculate()">Calcular</button>
+                <div class="linha">
+                    <div class="col-label small muted">IBS Mun:</div>
+                    <div class="col-input">
+                        <input id="" type="decimal" class="small-input"></div>
+                    <div class="col-value"></div>
                 </div>
+
             </div>
         </div>
 
-            <!-- RIGHT: destaque + result box -->
-            <aside class="right">
-                <div class="highlights">
-                    <div class="highlight">
-                        <div class="icon-circle ic-buy">🛒</div>
-                        <div class="label">Preço de Compra</div>
-                        <div class="amt">R$ 5,35</div>
-                    </div>
+        <!-- RIGHT PANEL -->
+        <aside class="right">
 
-                    <div class="highlight">
-                        <div class="icon-circle ic-sell">💲</div>
-                        <div class="label">Preço de Venda</div>
-                        <div class="amt">R$ 10,19</div>
-                    </div>
-
-                    <div class="highlight">
-                        <div class="icon-circle ic-profit">📈</div>
-                        <div class="label">Lucro Bruto</div>
-                        <div class="amt">R$ 3,52</div>
-                    </div>
+            <div class="highlights">
+                <div class="highlight">
+                    <div class="icon-circle ic-buy">🛒</div>
+                    <div class="label muted">Preço de Compra</div>
+                    <div class="amt"><strong>R$ 5,35</strong></div>
                 </div>
 
-                <div class="result-box">
-                    <div style="display:flex;align-items:center;justify-content:space-between">
-                        <div style="display:flex;gap:8px;align-items:center">
-                            <div class="tab active">Reforma Tributária</div>
-                        </div>
-                        <div>
-                            <input type="date" value="01/01/2026"
-                                style="padding:8px;border-radius:6px;border:1px solid #e6eaee" />
-                        </div>
-                    </div>
-
-                    <div class="section-title" style="margin-top:10px">Resultado</div>
-
-                    <div class="result-list" id="resultList">
-                        <div class="result-item"><span>Preço de venda:</span><strong>R$ 10,19</strong></div>
-                        <div class="result-item"><span>(-) ICMS a Pagar:</span><strong>R$ 0,97</strong></div>
-                        <div class="result-item"><span>(-) CBS a Pagar:</span><strong>R$ 0,01</strong></div>
-                        <div class="result-item"><span>(-) IBS Estadual a Pagar:</span><strong>R$ 0,09</strong></div>
-                        <div class="result-item"><span>(-) IBS Municipal a Pagar:</span><strong>R$ 0,00</strong></div>
-                        <div class="result-item"><span>(-) PIS/COFINS a Pagar:</span><strong>R$ 0,35</strong></div>
-                        <div class="result-item"><span>(-) Fornecedor a Pagar:</span><strong>R$ 5,35</strong></div>
-                        <div class="result-item"><span>(=) Lucro Bruto:</span><strong>R$ 3,52</strong></div>
-                    </div>
-
-                    <div class="result-footer">
-                        <div><span class="small muted">(=) Margem:</span> <strong id="margem">34,51%</strong></div>
-                        <div><span class="small muted">(=) Mark UP:</span> <strong id="markup">90,40%</strong></div>
-                    </div>
+                <div class="highlight">
+                    <div class="icon-circle ic-sell">💲</div>
+                    <div class="label muted">Preço de Venda</div>
+                    <div class="amt"><strong>R$ 10,19</strong></div>
                 </div>
 
-            </aside>
+                <div class="highlight">
+                    <div class="icon-circle ic-profit">📈</div>
+                    <div class="label muted">Lucro Bruto</div>
+                    <div class="amt"><strong>R$ 3,52</strong></div>
+                </div>
+            </div>
 
-            <footer class="note">Protótipo estático — valores ilustrativos seguindo o layout original.</footer>
-        </div>
+            <div class="result-box">
 
-        <script>
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div class="section-title">Reforma Tributária</div>
+                    <input type="text" class="date-input" value="01/01/2025" disabled/>
+                </div>
 
-        </script>
+                <div class="section-title" style="margin-top:10px">Resultado</div>
+
+                <div class="result-list">
+                    <div class="result-item"><span>Preço de venda:</span><strong>R$ 10,19</strong></div>
+                    <div class="result-item"><span>(-) ICMS a Pagar:</span><strong>R$ 0,97</strong></div>
+                    <div class="result-item"><span>(-) CBS a Pagar:</span><strong>R$ 0,01</strong></div>
+                    <div class="result-item"><span>(-) IBS Estadual a Pagar:</span><strong>R$ 0,09</strong></div>
+                    <div class="result-item"><span>(-) IBS Municipal a Pagar:</span><strong>R$ 0,00</strong></div>
+                    <div class="result-item"><span>(-) PIS/COFINS a Pagar:</span><strong>R$ 0,35</strong></div>
+                    <div class="result-item"><span>(-) Fornecedor a Pagar:</span><strong>R$ 5,35</strong></div>
+                    <div class="result-item"><span>(=) Lucro Bruto:</span><strong>R$ 3,52</strong></div>
+                </div>
+
+            </div>
+
+            <div class="highlights">
+                <div class="highlight">
+                    <div class="small muted"><strong>(=) Margem:</strong></div>
+                    <div class="amt"><strong>20,00 %</strong></div>
+                </div>
+
+                <div style="flex:1;"></div>
+
+                <div class="highlight">
+                    <div class="small muted"><strong>(=) Mark UP:</strong></div>
+                    <div calss="amt"><strong>25,00 %</strong></div>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
 
 </body>
 
