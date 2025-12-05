@@ -25,7 +25,7 @@
         <div class="card left">
 
             <!-- Preço + Margem + CMV -->
-            <div style="display:flex;gap:24px;align-items:center;justify-content:space-between">
+            <div style="display:flex;gap:14px;align-items:center;justify-content:space-between">
 
                 <div style="flex:1">
                     <div class="section-title">Preço de compra:</div>
@@ -56,44 +56,44 @@
                 <div class="section-title">Créditos e reduções</div>
 
                 <div class="linha">
-                    <div class="col-label small muted">(-) Crédito PIS/COFINS:</div>
+                    <label for="creditoPisCofins" class="col-label small muted">(-) Crédito PIS/COFINS:</label>
                     <div class="col-input">
                         <input id="creditoPisCofins" type="decimal" class="small-input"></div>
                     <div class="col-value small muted">R$ 1000,40</div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">(-) Crédito ICMS:</div>
+                    <label for="creditoICMS" class="col-label small muted">(-) Crédito ICMS:</label>
                     <div class="col-input">
-                        <input id="creditoIcms" type="decimal" class="small-input"></div>
+                        <input id="creditoICMS" type="decimal" class="small-input"></div>
                     <div class="col-value small muted">R$ 20,00</div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">Red. da base de cálculo:</div>
+                    <label for="reducaoBCICMS" class="col-label small muted">Red. da base de cálculo:</label>
                     <div class="col-input">
-                        <input id="reducaoBcIcms" type="decimal" class="small-input"></div>
+                        <input id="reducaoBCICMS" type="decimal" class="small-input"></div>
                     <div class="col-value"></div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted"> (+) ICMS ST:</div>
+                    <label for="ICMSST" class="col-label small muted"> (+) ICMS ST:</label>
                     <div class="col-input">
-                        <input id="icmsSt" type="decimal" class="small-input"></div>
+                        <input id="ICMSST" type="decimal" class="small-input"></div>
                     <div class="col-value small muted">R$ 0,00</div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">Red. da base de cálculo ST:</div>
+                    <label for="reducaoBCST" class="col-label small muted">Red. da base de cálculo ST:</label>
                     <div class="col-input">
-                        <input id="reducaoBcSt" type="decimal" class="small-input"></div>
+                        <input id="reducaoBCST" type="decimal" class="small-input"></div>
                     <div class="col-value"></div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">(+) IPI:</div>
+                    <label for="IPI" class="col-label small muted">(+) IPI:</label>
                     <div class="col-input">
-                        <input id="ipi" type="decimal" class="small-input"></div>
+                        <input id="IPI" type="decimal" class="small-input"></div>
                     <div class="col-value small muted">R$ 0,00</div>
                 </div>
 
@@ -104,58 +104,58 @@
                 <div class="section-title">Tributos na venda</div>
 
                 <div class="linha">
-                    <div class="col-label small muted">PIS/COFINS Venda:</div>
+                    <label for="vendaPisCofins" class="col-label small muted">PIS/COFINS Venda:</label>
                     <div class="col-input">
                         <input id="vendaPisCofins" type="decimal" class="small-input"></div>
                     <div class="col-value small muted">R$ 0,75</div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">ICMS Venda:</div>
+                    <label for="vendaICMS" class="col-label small muted">ICMS Venda:</label>
                     <div class="col-input">
-                        <input id="vendaIcms" type="decimal" class="small-input"></div>
+                        <input id="vendaICMS" type="decimal" class="small-input"></div>
                     <div class="col-value small muted">R$ 2,04</div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">Red. da base de cálculo Saida:</div>
+                    <label for="reducaoBCSaida" class="col-label small muted">Red. da base de cálculo Saida:</label>
                     <div class="col-input">
-                        <input id="saidaReducaoBc" type="decimal" class="small-input"></div>
+                        <input id="reducaoBCSaida" type="decimal" class="small-input"></div>
                     <div class="col-value"></div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">CBS Alíquota:</div>
+                    <label for="aliquotaCBS" class="col-label small muted">Alíquota CBS:</label>
                     <div class="col-input">
-                        <input id="" type="decimal" class="small-input"></div>
+                        <input id="aliquotaCBS" type="decimal" class="small-input"></div>
                     <div class="col-value"></div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">CBS Redução Alíquota:</div>
+                    <label for="aliquotaReducaoCBS" class="col-label small muted">Alíquota Redução CBS:</label>
                     <div class="col-input">
-                        <input id="" type="decimal" class="small-input"></div>
+                        <input id="aliquotaReducaoCBS" type="decimal" class="small-input"></div>
                     <div class="col-value"></div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">IBS UF Alíquota:</div>
+                    <label for="aliquotaIBSUF" class="col-label small muted">Alíquota IBS UF:</label>
                     <div class="col-input">
-                        <input id="" type="decimal" class="small-input"></div>
+                        <input id="aliquotaIBSUF" type="decimal" class="small-input"></div>
                     <div class="col-value"></div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">IBS UF Redução Alíquota:</div>
+                    <label for="aliquotaReducaoIBSUF" class="col-label small muted">Alíquota Redução IBS UF:</label>
                     <div class="col-input">
-                        <input id="" type="decimal" class="small-input"></div>
+                        <input id="aliquotaReducaoIBSUF" type="decimal" class="small-input"></div>
                     <div class="col-value"></div>
                 </div>
 
                 <div class="linha">
-                    <div class="col-label small muted">IBS Mun:</div>
+                    <label for="IBSmun" class="col-label small muted">IBS Mun:</label>
                     <div class="col-input">
-                        <input id="" type="decimal" class="small-input"></div>
+                        <input id="IBSmun" type="decimal" class="small-input"></div>
                     <div class="col-value"></div>
                 </div>
 
@@ -165,7 +165,7 @@
         <!-- RIGHT PANEL -->
         <aside class="right">
 
-            <div class="highlights">
+            <div class="highlights-tree">
                 <div class="highlight">
                     <div class="icon-circle ic-buy">🛒</div>
                     <div class="label muted">Preço de Compra</div>
@@ -185,14 +185,26 @@
                 </div>
             </div>
 
-            <div class="result-box">
-
-                <div style="display:flex;justify-content:space-between;align-items:center">
-                    <div class="section-title">Reforma Tributária</div>
-                    <input type="text" class="date-input" value="01/01/2025" disabled/>
+            <div class="highlights-two">
+                <div class="highlight">
+                    <div class="small muted"><strong>(=) Margem:</strong></div>
+                    <div class="amt"><strong>20,00 %</strong></div>
                 </div>
 
-                <div class="section-title" style="margin-top:10px">Resultado</div>
+                <div class="highlight">
+                    <div class="small muted"><strong>(=) Mark UP:</strong></div>
+                    <div calss="amt"><strong>25,00 %</strong></div>
+                </div>
+            </div>
+
+            <!-- RESULT BOX -->
+
+            <div class="result-box">
+
+                <div style="display:flex; justify-content:space-between; align-items:center">
+                    <div class="section-title">Resultados</div>
+                    <input type="text" class="date-input" value="01/01/2025" disabled/>
+                </div>
 
                 <div class="result-list">
                     <div class="result-item"><span>Preço de venda:</span><strong>R$ 10,19</strong></div>
@@ -205,20 +217,6 @@
                     <div class="result-item"><span>(=) Lucro Bruto:</span><strong>R$ 3,52</strong></div>
                 </div>
 
-            </div>
-
-            <div class="highlights">
-                <div class="highlight">
-                    <div class="small muted"><strong>(=) Margem:</strong></div>
-                    <div class="amt"><strong>20,00 %</strong></div>
-                </div>
-
-                <div style="flex:1;"></div>
-
-                <div class="highlight">
-                    <div class="small muted"><strong>(=) Mark UP:</strong></div>
-                    <div calss="amt"><strong>25,00 %</strong></div>
-                </div>
             </div>
 
         </aside>
