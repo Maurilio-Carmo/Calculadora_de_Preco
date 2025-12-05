@@ -155,7 +155,7 @@
 
         .muted {
             color: var(--muted);
-            font-size: 13px
+            font-size: 15px
         }
 
         .price-display {
@@ -392,7 +392,7 @@
                     <div class="section-title">CMV:</div>
                     <div style="display:flex;gap:8px;align-items:center">
                         <div class="badge">R$</div>
-                        <input type="number" placeholder="0,00" class="input" />
+                        <input type="number" placeholder="0,00" class="input" disabled />
                     </div>
                 </div>
             </div>
@@ -401,198 +401,208 @@
             <div class="boxed-section" style="margin-top:10px">
                 <div class="section-title">Créditos e reduções</div>
 
-                <div class="fields-grid" style="margin-bottom:8px">
-                    <div>
-                        <div class="small muted">(-) Crédito PIS/COFINS:</div>
-                        <input type="number" placeholder="0,00" class="small-input" />
+                <!-- (-) Crédito PIS/COFINS -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">(-) Crédito PIS/COFINS:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="text-align:right" class="small muted">R$ 0,40</div>
+                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 7,40</div>
                 </div>
 
-                <div class="fields-grid" style="margin-bottom:8px">
-                    <div>
-                        <div class="small muted">(-) Crédito ICMS:</div>
-                        <input type="number" placeholder="0,00" class="small-input" />
+                <!-- (-) Crédito ICMS -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">(-) Crédito ICMS:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="text-align:right" class="small muted">R$ 1,07</div>
+                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 20,00</div>
                 </div>
 
-                <div class="fields-grid" style="margin-bottom:8px">
-                    <div>
-                        <div class="small muted">Redução da base de cálculo:</div>
-                        <input type="number" placeholder="0,00" class="small-input" />
+                <!-- Redução da base de cálculo -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">Redução da base de cálculo:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
+                    <div style="flex:0 0 60px;"></div>
                 </div>
 
-                <div class="fields-grid" style="margin-bottom:8px">
-                    <div>
-                        <div class="small muted">(+) ICMS ST:</div>
-                        <input type="number" placeholder="0,00" class="small-input" />
+                <!-- (+) ICMS ST -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted"> (+) ICMS ST:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="text-align:right" class="small muted">R$0,00</div>
+                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 0,00</div>
                 </div>
 
-                <div class="fields-grid" style="margin-bottom:8px">
-                    <div>
-                        <div class="small muted">Redução da base de cálculo ST:</div>
-                        <input type="number" placeholder="0,00" class="small-input" />
+                <!-- Redução da base de cálculo ST -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">Redução da base de cálculo ST:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
+                    <div style="flex:0 0 60px;"></div>
                 </div>
 
-                <div class="fields-grid" style="margin-bottom:8px">
-                    <div>
-                        <div class="small muted">(+) IPI:</div>
-                        <input type="number" placeholder="0,00" class="small-input" />
+                <!-- (+) IPI -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">(+) IPI:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
-                    <div style="text-align:right" class="small muted">R$0,00</div>
+                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 0,00</div>
                 </div>
 
             </div>
 
-            <!-- BOX de Impostos de Saida -->
+            <!-- BOX de Impostos de Saída -->
             <div class="boxed-section" style="margin-top:10px">
-                <div style="display:flex;gap:14px;align-items:center;justify-content:space-between">
-                    <div style="width:320px">
-                        <div class="section-title">Tributos na venda</div>
+                <div class="section-title">Tributos na venda</div>
 
-                        <div class="fields-grid" style="margin-bottom:8px">
-                            <div>
-                                <div class="small muted">PIS/COFINS Venda:</div>
-                                <input type="number" placeholder="0,00" class="small-input" />
-                            </div>
-                            <div class="small muted" style="margin-top:6px">R$ 0,75</div>
-                        </div>
-
-                        <div class="fields-grid" style="margin-bottom:8px">
-                            <div>
-                                <div style="margin-bottom:8px">
-                                    <div class="small muted">ICMS Venda:</div>
-                                    <input type="number" placeholder="0,00" class="small-input" />
-                                </div>
-                            </div>
-                            <div class="small muted" style="margin-top:6px">R$ 2,04</div>
-                        </div>
-
-                        <div>
-                            <div class="small muted">Redução da base de cálculo Saida:</div>
-                            <input type="number" placeholder="0,00" class="small-input" />
-                        </div>
+                <!-- PIS/COFINS Venda -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">PIS/COFINS Venda:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
                     </div>
+                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 0,75</div>
                 </div>
 
-                <div style="display:flex;justify-content:flex-end;margin-top:12px">
+                <!-- ICMS Venda -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">ICMS Venda:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
+                    </div>
+                    <div style="flex:0 0 60px; text-align:right;" class="small muted">R$ 2,04</div>
+                </div>
+
+                <!-- CBS Alíquota -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">CBS Alíquota:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
+                    </div>
+                    <div style="flex:0 0 60px;"></div>
+                </div>
+
+                <!-- CBS Redução Alíquota -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">CBS Redução Alíquota:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
+                    </div>
+                    <div style="flex:0 0 60px;"></div>
+                </div>
+
+                <!-- IBS UF Alíquota -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">IBS UF Alíquota:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
+                    </div>
+                    <div style="flex:0 0 60px;"></div>
+                </div>
+
+                <!-- IBS UF Redução Alíquota -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">IBS UF Redução Alíquota:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
+                    </div>
+                    <div style="flex:0 0 60px;"></div>
+                </div>
+
+                <!-- IBS Mun -->
+                <div class="linha"
+                    style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; gap:10px; width:400px;">
+                    <div style="flex:1; text-align:right;" class="small muted">IBS Mun:</div>
+                    <div style="flex:0 0 120px;">
+                        <input type="number" placeholder="0,00" class="small-input" style="width:100%;" />
+                    </div>
+                    <div style="flex:0 0 60px;"></div>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end; margin-top:12px;">
                     <button class="calculate" onclick="calculate()">Calcular</button>
                 </div>
             </div>
         </div>
 
-        <!-- RIGHT: destaque + result box -->
-        <aside class="right">
-            <div class="highlights">
-                <div class="highlight">
-                    <div class="icon-circle ic-buy">🛒</div>
-                    <div class="label">Preço de Compra</div>
-                    <div class="amt">R$ 5,35</div>
-                </div>
-
-                <div class="highlight">
-                    <div class="icon-circle ic-sell">💲</div>
-                    <div class="label">Preço de Venda</div>
-                    <div class="amt">R$ 10,19</div>
-                </div>
-
-                <div class="highlight">
-                    <div class="icon-circle ic-profit">📈</div>
-                    <div class="label">Lucro Bruto</div>
-                    <div class="amt">R$ 3,52</div>
-                </div>
-            </div>
-
-            <div class="result-box">
-                <div style="display:flex;align-items:center;justify-content:space-between">
-                    <div style="display:flex;gap:8px;align-items:center">
-                        <div class="tab active">Atual</div>
-                        <div class="tab">Reforma Tributária</div>
+            <!-- RIGHT: destaque + result box -->
+            <aside class="right">
+                <div class="highlights">
+                    <div class="highlight">
+                        <div class="icon-circle ic-buy">🛒</div>
+                        <div class="label">Preço de Compra</div>
+                        <div class="amt">R$ 5,35</div>
                     </div>
-                    <div>
-                        <div class="small muted">Data ocorrência:</div>
-                        <input type="date" value="01/01/2026"
-                            style="padding:8px;border-radius:6px;border:1px solid #e6eaee" />
+
+                    <div class="highlight">
+                        <div class="icon-circle ic-sell">💲</div>
+                        <div class="label">Preço de Venda</div>
+                        <div class="amt">R$ 10,19</div>
+                    </div>
+
+                    <div class="highlight">
+                        <div class="icon-circle ic-profit">📈</div>
+                        <div class="label">Lucro Bruto</div>
+                        <div class="amt">R$ 3,52</div>
                     </div>
                 </div>
 
-                <div class="section-title" style="margin-top:10px">Resultado</div>
+                <div class="result-box">
+                    <div style="display:flex;align-items:center;justify-content:space-between">
+                        <div style="display:flex;gap:8px;align-items:center">
+                            <div class="tab active">Reforma Tributária</div>
+                        </div>
+                        <div>
+                            <input type="date" value="01/01/2026"
+                                style="padding:8px;border-radius:6px;border:1px solid #e6eaee" />
+                        </div>
+                    </div>
 
-                <div class="result-list" id="resultList">
-                    <div class="result-item"><span>Preço de venda:</span><strong>R$ 10,19</strong></div>
-                    <div class="result-item"><span>(-) ICMS a Pagar:</span><strong>R$ 0,97</strong></div>
-                    <div class="result-item"><span>(-) CBS a Pagar:</span><strong>R$ 0,01</strong></div>
-                    <div class="result-item"><span>(-) IBS Estadual a Pagar:</span><strong>R$ 0,09</strong></div>
-                    <div class="result-item"><span>(-) IBS Municipal a Pagar:</span><strong>R$ 0,00</strong></div>
-                    <div class="result-item"><span>(-) PIS/COFINS a Pagar:</span><strong>R$ 0,35</strong></div>
-                    <div class="result-item"><span>(-) Fornecedor a Pagar:</span><strong>R$ 5,35</strong></div>
-                    <div class="result-item"><span>(=) Lucro Bruto:</span><strong>R$ 3,52</strong></div>
+                    <div class="section-title" style="margin-top:10px">Resultado</div>
+
+                    <div class="result-list" id="resultList">
+                        <div class="result-item"><span>Preço de venda:</span><strong>R$ 10,19</strong></div>
+                        <div class="result-item"><span>(-) ICMS a Pagar:</span><strong>R$ 0,97</strong></div>
+                        <div class="result-item"><span>(-) CBS a Pagar:</span><strong>R$ 0,01</strong></div>
+                        <div class="result-item"><span>(-) IBS Estadual a Pagar:</span><strong>R$ 0,09</strong></div>
+                        <div class="result-item"><span>(-) IBS Municipal a Pagar:</span><strong>R$ 0,00</strong></div>
+                        <div class="result-item"><span>(-) PIS/COFINS a Pagar:</span><strong>R$ 0,35</strong></div>
+                        <div class="result-item"><span>(-) Fornecedor a Pagar:</span><strong>R$ 5,35</strong></div>
+                        <div class="result-item"><span>(=) Lucro Bruto:</span><strong>R$ 3,52</strong></div>
+                    </div>
+
+                    <div class="result-footer">
+                        <div><span class="small muted">(=) Margem:</span> <strong id="margem">34,51%</strong></div>
+                        <div><span class="small muted">(=) Mark UP:</span> <strong id="markup">90,40%</strong></div>
+                    </div>
                 </div>
 
-                <div class="result-footer">
-                    <div><span class="small muted">(=) Margem:</span> <strong id="margem">34,51%</strong></div>
-                    <div><span class="small muted">(=) Mark UP:</span> <strong id="markup">90,40%</strong></div>
-                </div>
-            </div>
+            </aside>
 
-        </aside>
+            <footer class="note">Protótipo estático — valores ilustrativos seguindo o layout original.</footer>
+        </div>
 
-        <footer class="note">Protótipo estático — valores ilustrativos seguindo o layout original.</footer>
-    </div>
+        <script>
 
-    <script>
-        // JS mínimo apenas para efeito visual de "calcular"
-        function parseCurrency(str) {
-            if (!str) return 0;
-            str = String(str).replace(/\./g, '').replace(',', '.').replace(/[^\d\.-]/g, '');
-            var v = parseFloat(str);
-            return isNaN(v) ? 0 : v;
-        }
-
-        function formatMoney(v) {
-            return v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
-
-        function calculate() {
-            // pega alguns valores de exemplo do DOM para simular recalculo
-            var precoCompra = parseCurrency(document.querySelector('input[type="text"]').value || '5.35');
-            // exemplo de cálculo para atualizar boxes - simplificado
-            var markup = 0.9040;
-            var precoVenda = precoCompra * (1 + markup);
-            var lucro = precoVenda - precoCompra;
-            var margem = (lucro / precoVenda) * 100;
-
-            // atualizar destaques
-            document.querySelectorAll('.highlight .amt')[0].textContent = 'R$ ' + formatMoney(precoCompra);
-            document.querySelectorAll('.highlight .amt')[1].textContent = 'R$ ' + formatMoney(precoVenda);
-            document.querySelectorAll('.highlight .amt')[2].textContent = 'R$ ' + formatMoney(lucro);
-
-            // atualizar resultado
-            document.querySelector('#resultList').innerHTML = [
-                ['Preço de venda:', 'R$ ' + formatMoney(precoVenda)],
-                ['(-) ICMS a Pagar:', 'R$ 0,97'],
-                ['(-) CBS a Pagar:', 'R$ 0,01'],
-                ['(-) IBS Estadual a Pagar:', 'R$ 0,09'],
-                ['(-) IBS Municipal a Pagar:', 'R$ 0,00'],
-                ['(-) PIS/COFINS a Pagar:', 'R$ 0,35'],
-                ['(-) Fornecedor a Pagar:', 'R$ ' + formatMoney(precoCompra)],
-                ['(=) Lucro Bruto:', 'R$ ' + formatMoney(lucro)]
-            ].map(function (r) {
-                return '<div class="result-item"><span>' + r[0] + '</span><strong>' + r[1] + '</strong></div>';
-            }).join('');
-
-            document.getElementById('margem').textContent = formatMoney(margem) + '%';
-            document.getElementById('markup').textContent = (markup * 100).toFixed(2) + '%';
-        }
-
-        // inicializa
-        window.addEventListener('load', calculate);
-    </script>
+        </script>
 
 </body>
 
