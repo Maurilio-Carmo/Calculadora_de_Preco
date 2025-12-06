@@ -1,24 +1,24 @@
 // calcResultado.js
 import { percent } from "./utils.js";
 
-export function calcPrecoVenda(cmv, margem, percVendaPisCofins, percVendaICMS, percReducaoSaida) {
-    const carga = percent(margem)
+export function calcPrecoVenda(cmv, margemDesejada, percVendaPisCofins, percVendaICMS, percReducaoICMSSaida) {
+    const carga = percent(margemDesejada)
                 + percent(percVendaPisCofins)
-                + (percent(percVendaICMS) * (1 - percent(percReducaoSaida)));
+                + (percent(percVendaICMS) * (1 - percent(percReducaoICMSSaida)));
 
     return cmv / (1 - carga);
 }
 
-export function calcPisPagar(vPisVenda, vPisCredito) {
-    return vPisVenda - vPisCredito;
+export function calcPisCofinsPagar(vPisCofinsVenda, vCreditoPisCofins) {
+    return vPisCofinsVenda - vCreditoPisCofins;
 }
 
-export function calcICMSPagar(vIcmsVenda, vIcmsCredito) {
-    return vIcmsVenda - vIcmsCredito;
+export function calcICMSPagar(vICMSVenda, vIcmsCredito) {
+    return vICMSVenda - vIcmsCredito;
 }
 
-export function calcLucroBruto(precoVenda, cmv, pisVenda, percVendaICMS) {
-    return precoVenda - (cmv + pisVenda + percVendaICMS);
+export function calcLucroBruto(precoVenda, cmv, vPisCofinsVenda, vICMSVenda) {
+    return precoVenda - (cmv + vPisCofinsVenda + vICMSVenda);
 }
 
 export function calcMargem(lucro, precoVenda) {
