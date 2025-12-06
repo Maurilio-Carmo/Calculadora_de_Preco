@@ -1,4 +1,5 @@
 // main.js
+
 import { processar } from "./controller.js";
 
 // todos inputs da tela acionam cálculo em tempo real
