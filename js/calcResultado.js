@@ -1,4 +1,5 @@
 // calcResultado.js
+
 import { percent } from "./utils.js";
 
 export function calcPrecoVenda(cmv, margemDesejada, percVendaPisCofins, percVendaICMS, percReducaoICMSSaida) {
@@ -21,9 +22,9 @@ export function calcLucroBruto(precoVenda, cmv, vPisCofinsVenda, vICMSVenda) {
     return precoVenda - (cmv + vPisCofinsVenda + vICMSVenda);
 }
 
-export function calcMargem(lucro, precoVenda) {
+export function calcMargem(lucroBruto, precoVenda) {
     if (precoVenda === 0) return 0;
-    return (lucro / precoVenda) * 100;
+    return (lucroBruto / precoVenda) * 100;
 }
 
 export function calcMarkup(precoVenda, precoCompra) {
