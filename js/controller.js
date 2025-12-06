@@ -76,6 +76,16 @@ export function processar() {
 // ======================================================
 function atualizarTela(v) {
 
+    // Atualiza os valores na tela
+    document.getElementById("creditoPisCofins").nextElementSibling.textContent = "R$ " + v.vCreditoPis.toFixed(2);
+
+    document.getElementById("creditoICMS").nextElementSibling.textContent = "R$ " + v.vCreditoICMS.toFixed(2);
+
+    document.getElementById("vendaPisCofins").nextElementSibling.textContent = "R$ " + v.vPisVenda.toFixed(2);
+
+    document.getElementById("vendaICMS").nextElementSibling.textContent = "R$ " + v.vICMSVenda.toFixed(2);
+    
+    
     // destaque (topo)
     document.getElementById("precoCompra").textContent = "R$ " + v.precoVenda.toFixed(2);
 
