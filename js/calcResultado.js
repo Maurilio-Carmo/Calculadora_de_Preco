@@ -23,10 +23,10 @@ export function calcLucroBruto(precoVenda, cmv, pisVenda, icmsVenda) {
 
 export function calcMargem(lucro, precoVenda) {
     if (precoVenda === 0) return 0;
-    return lucro / precoVenda;
+    return (lucro / precoVenda) * 100;
 }
 
 export function calcMarkup(precoVenda, precoCompra) {
     if (precoCompra === 0) return 0;
-    return (precoVenda - precoCompra) / precoCompra;
+    return ((precoVenda - precoCompra) / precoCompra) * 100;
 }
