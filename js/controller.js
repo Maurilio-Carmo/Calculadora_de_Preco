@@ -26,7 +26,7 @@ export function processar() {
 
     const cmv = entrada.calcCMV(precoCompra, vCreditoPis, vCreditoICMS, vST, vIPI);
 
-    // SAÍDA (dependem do preço de venda que ainda será calculado)
+    // SAÍDA
     const percPisVenda = toNumber(document.getElementById("vendaPisCofins").value);
     const percICMSVenda = toNumber(document.getElementById("vendaICMS").value);
     const percReducaoSaida = toNumber(document.getElementById("reducaoBCSaida").value);
@@ -40,7 +40,6 @@ export function processar() {
         percReducaoSaida
     );
 
-    // SAÍDA (agora com precoVenda)
     const vICMSVenda = saida.calcICMSVenda(precoVenda, percICMSVenda, percReducaoSaida);
     const vPisVenda = saida.calcPisCofinsVenda(precoVenda, percPisVenda, vICMSVenda);
 
@@ -51,7 +50,7 @@ export function processar() {
     const margemCalc = resultado.calcMargem(lucroBruto, precoVenda);
     const markup = resultado.calcMarkup(precoVenda, precoCompra);
 
-    return {
+    const valores = {
         precoVenda,
         cmv,
         vCreditoPis,
@@ -66,4 +65,44 @@ export function processar() {
         margemCalc,
         markup
     };
+
+    atualizarTela(valores);
+    return valores;
+}
+
+
+// ======================================================
+// ATUALIZAÇÃO DE TELA
+// ======================================================
+function atualizarTela(v) {
+
+    // destaque (topo)
+    document.getElementById("precoCompra").textContent = "R$ " + v.precoVenda.toFixed(2);
+
+    document.getElementById("precoVendaResultado").textContent = "R$ " + v.precoVenda.toFixed(2);
+
+    document.getElementById("lucroBrutoResultado").textContent = "R$ " + v.lucroBruto.toFixed(2);
+    
+    document.getElementById("margemResultado").textContent = v.margemCalc.toFixed(2) + " %";
+
+    document.getElementById("cmvResultado").textContent = "R$ " + v.cmv.toFixed(2);
+
+    document.getElementById("markupResultado").textContent = v.markup.toFixed(2) + " %";
+
+    // lista detalhada
+    document.getElementById("precoVendaDetalhe").textContent = "R$ " + v.precoVenda.toFixed(2);
+
+    document.getElementById("pisPagarResultado").textContent = "R$ " + v.pisPagar.toFixed(2);
+
+    document.getElementById("icmsPagarResultado").textContent = "R$ " + v.icmsPagar.toFixed(2);
+
+    document.getElementById("cbsPagarResultado").textContent = "R$ 0,00"; // ainda não calculado
+
+    document.getElementById("ibsEstResultado").textContent = "R$ 0,00"; // ainda não calculado
+
+    document.getElementById("ibsMunResultado").textContent = "R$ 0,00"; // ainda não calculado
+
+    document.getElementById("fornecedorResultado").textContent = "R$ " + v.cmv.toFixed(2);
+
+    document.getElementById("lucroBrutoDetalhe").textContent = "R$ " + v.lucroBruto.toFixed(2);
 }
