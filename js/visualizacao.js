@@ -16,7 +16,7 @@ export function atualizarTela(v) {
     document.getElementById("valorVendaICMS").textContent = "R$ " + v.vICMSVenda.toFixed(2);
     
     // destaque (topo)
-    document.getElementById("precoCompra").textContent = "R$ " + v.precoCompra.toFixed(2);
+    document.getElementById("precoCompraResultado").textContent = "R$ " + v.precoCompra.toFixed(2);
 
     document.getElementById("precoVendaResultado").textContent = "R$ " + v.precoVenda.toFixed(2);
 
@@ -31,17 +31,17 @@ export function atualizarTela(v) {
     // lista detalhada
     document.getElementById("precoVendaDetalhe").textContent = "R$ " + v.precoVenda.toFixed(2);
 
-    document.getElementById("pisPagarResultado").textContent = "R$ " + v.pisCofinsPagar.toFixed(2);
+    document.getElementById("pisCofinsPagarDetalhe").textContent = "R$ " + v.pisCofinsPagar.toFixed(2);
 
-    document.getElementById("icmsPagarResultado").textContent = "R$ " + v.icmsPagar.toFixed(2);
+    document.getElementById("icmsPagarDetalhe").textContent = "R$ " + v.icmsPagar.toFixed(2);
 
-    document.getElementById("cbsPagarResultado").textContent = "R$ 0,00"; // ainda não calculado
+    document.getElementById("cbsPagarDetalhe").textContent = "R$ 0,00"; // ainda não calculado
 
-    document.getElementById("ibsEstResultado").textContent = "R$ 0,00"; // ainda não calculado
+    document.getElementById("ibsUFDetalhe").textContent = "R$ 0,00"; // ainda não calculado
 
-    document.getElementById("ibsMunResultado").textContent = "R$ 0,00"; // ainda não calculado
+    document.getElementById("ibsMunDetalhe").textContent = "R$ 0,00"; // ainda não calculado
 
-    document.getElementById("fornecedorResultado").textContent = "R$ " + v.precoCompra.toFixed(2);
+    document.getElementById("fornecedorDetalhe").textContent = "R$ " + v.precoCompra.toFixed(2);
 
     document.getElementById("lucroBrutoDetalhe").textContent = "R$ " + v.lucroBruto.toFixed(2);
 }
