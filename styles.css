@@ -257,6 +257,7 @@ select {
 }
 
 /* responsividade desktop > mobile */
+
 @media (max-width: 900px) {
 
     .body {
@@ -271,44 +272,32 @@ select {
 
 @media (max-width: 480px) {
 
-  .linha {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "label value"
-      "input input";
-    gap: 6px;
-    width: 100%;
-  }
+    .body {
+        padding: 5px;
+    }
 
-  .col-label {
-    grid-area: label;
-    text-align: left !important;
-    white-space: nowrap;
-  }
+    .linha {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 100%;
+    }
 
-  .col-value {
-    grid-area: value;
-    text-align: right !important;
-    font-size: 13px;
-  }
+    .top-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        white-space: nowrap;
+    }
 
-  .col-input {
-    grid-area: input;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-  }
+    .col-label,
+    .col-input {
+        width: 100%;
+        text-align: left !important;
+    }
 
-  .percent-input {
-    flex: 1;
-    max-width: 100%;
-  }
-
-  .percent-suffix {
-    margin-left: 4px;
-  }
-}
-    text-align: right;
-  }
+    .col-value {
+        width: 100%;
+        text-align: right !important;
+    }
 }
