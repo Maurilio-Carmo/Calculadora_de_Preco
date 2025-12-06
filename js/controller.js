@@ -32,6 +32,12 @@ export function processar() {
     const percVendaPisCofins = toNumber(document.getElementById("vendaPisCofins").value);
     const percVendaICMS = toNumber(document.getElementById("vendaICMS").value);
     const percReducaoICMSSaida = toNumber(document.getElementById("reducaoBCSaida").value);
+    
+    const percCBS = toNumber(document.getElementById("aliquotaCBS").value);
+    const percReducaoCBS = toNumber(document.getElementById("aliquotaReducaoCBS").value);
+    const percIBSUF = toNumber(document.getElementById("aliquotaIBSUF").value);
+    const percReducaoIBSUF = toNumber(document.getElementById("aliquotaReducaoIBSUF").value);
+    const percIBSMun = toNumber(document.getElementById("IBSmun").value);
 
     // PREÇO DE VENDA
     const precoVenda = resultado.calcPrecoVenda(
@@ -44,7 +50,10 @@ export function processar() {
     
     const vICMSVenda = saida.calcICMSVenda(precoVenda, percVendaICMS, percReducaoICMSSaida);    
     const vPisCofinsVenda = saida.calcPisCofinsVenda(precoVenda, percVendaPisCofins, vICMSVenda);
-    
+    const vCBSVenda = saida.calcCBSVenda(precoVenda, percCBS, percReducaoCBS);
+    const vIBSUFVenda = saida.calcIBSUFVenda(precoVenda, percIBSUF, percReducaoIBSUF);
+    const vIBSMunVenda = saida.calcIBSMunVenda(precoVenda, percIBSMun);
+
     // RESULTADOS
     const pisCofinsPagar = resultado.calcPisCofinsPagar(vPisCofinsVenda, vCreditoPisCofins);
     const icmsPagar = resultado.calcICMSPagar(vICMSVenda, vCreditoICMS);
@@ -62,6 +71,9 @@ export function processar() {
         precoVenda,
         vPisCofinsVenda,
         vICMSVenda,
+        vCBSVenda,
+        vIBSUFVenda,
+        vIBSMunVenda,
         pisCofinsPagar,
         icmsPagar,
         lucroBruto,

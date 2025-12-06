@@ -35,11 +35,11 @@ export function atualizarTela(v) {
 
     document.getElementById("icmsPagarDetalhe").textContent = "R$ " + v.icmsPagar.toFixed(2);
 
-    document.getElementById("cbsPagarDetalhe").textContent = "R$ 0,00"; // ainda não calculado
+    document.getElementById("cbsPagarDetalhe").textContent = "R$ " + v.vCBSVenda.toFixed(2);
 
-    document.getElementById("ibsUFDetalhe").textContent = "R$ 0,00"; // ainda não calculado
+    document.getElementById("ibsUFDetalhe").textContent = "R$ " + v.vIBSUFVenda.toFixed(2);
 
-    document.getElementById("ibsMunDetalhe").textContent = "R$ 0,00"; // ainda não calculado
+    document.getElementById("ibsMunDetalhe").textContent = "R$ " + v.vIBSMunVenda.toFixed(2);
 
     document.getElementById("fornecedorDetalhe").textContent = "R$ " + v.precoCompra.toFixed(2);
 
