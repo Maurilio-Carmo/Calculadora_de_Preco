@@ -177,36 +177,54 @@
                 <div class="highlight">
                     <div class="icon-circle ic-buy">🛒</div>
                     <div class="label muted">Preço de Compra</div>
-                    <div class="amt"><strong>R$ 5,35</strong></div>
+                    <div class="amt">
+                        <strong id="precoCompra">R$ 0,00</strong>
+                    </div>
                 </div>
 
                 <div class="highlight">
                     <div class="icon-circle ic-sell">💲</div>
                     <div class="label muted">Preço de Venda</div>
-                    <div class="amt"><strong>R$ 10,19</strong></div>
+                    <div class="amt">
+                        <strong id="precoVendaResultado">R$ 0,00</strong>
+                    </div>
                 </div>
 
                 <div class="highlight">
                     <div class="icon-circle ic-profit">📈</div>
                     <div class="label muted">Lucro Bruto</div>
-                    <div class="amt"><strong>R$ 3,52</strong></div>
+                    <div class="amt">
+                        <strong id="lucroBrutoResultado">R$ 0,00</strong>
+                    </div>
                 </div>
             </div>
 
             <div class="highlights-tree">
                 <div class="highlight">
-                    <div class="small muted"><strong>(=) Margem:</strong></div>
-                    <div class="amt"><strong>20,00 %</strong></div>
+                    <div class="small muted">
+                        <strong>(=) Margem:</strong>
+                    </div>
+                    <div class="amt">
+                        <strong id="margemResultado">0,00 %</strong>
+                    </div>
                 </div>
 
                 <div class="highlight">
-                    <div class="small muted"><strong>CMV:</strong></div>
-                    <div class="amt"><strong>R$ 20,00</strong></div>
+                    <div class="small muted">
+                        <strong>CMV:</strong>
+                    </div>
+                    <div class="amt">
+                        <strong id="cmvResultado">R$ 0,00</strong>
+                    </div>
                 </div>
 
                 <div class="highlight">
-                    <div class="small muted"><strong>(=) Mark UP:</strong></div>
-                    <div calss="amt"><strong>25,00 %</strong></div>
+                    <div class="small muted">
+                        <strong>(=) Mark UP:</strong>
+                    </div>
+                    <div calss="amt">
+                        <strong id="markupResultado">0,00 %</strong>
+                    </div>
                 </div>
             </div>
 
@@ -220,14 +238,46 @@
                 </div>
 
                 <div class="result-list">
-                    <div class="result-item"><span>Preço de venda:</span><strong>R$ 10,19</strong></div>
-                    <div class="result-item"><span>(-) PIS/COFINS a Pagar:</span><strong>R$ 0,35</strong></div>
-                    <div class="result-item"><span>(-) ICMS a Pagar:</span><strong>R$ 0,97</strong></div>
-                    <div class="result-item"><span>(-) CBS a Pagar:</span><strong>R$ 0,01</strong></div>
-                    <div class="result-item"><span>(-) IBS Estadual a Pagar:</span><strong>R$ 0,09</strong></div>
-                    <div class="result-item"><span>(-) IBS Municipal a Pagar:</span><strong>R$ 0,00</strong></div>
-                    <div class="result-item"><span>(-) Fornecedor a Pagar:</span><strong>R$ 5,35</strong></div>
-                    <div class="result-item"><span>(=) Lucro Bruto:</span><strong>R$ 3,52</strong></div>
+                    <div class="result-item">
+                        <span>Preço de venda:</span>
+                        <strong id="precoVendaResultado">R$ 0,00</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span>(-) PIS/COFINS a Pagar:</span>
+                        <strong id="pisCofinsPagarResultado">R$ 0,00</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span>(-) ICMS a Pagar:</span>
+                        <strong id="icmsPagarResultado">R$ 0,00</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span>(-) CBS a Pagar:</span>
+                        <strong id="cbsPagarResultado">R$ 0,00</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span>(-) IBS Estadual a Pagar:</span>
+                        <strong id="ibsUfResultado">R$ 0,00</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span>(-) IBS Municipal a Pagar:</span>
+                        <strong id="ibsMunResultado">R$ 0,00</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span>(-) Fornecedor a Pagar:</span>
+                        <strong id="fornecedorResultado">R$ 0,00</strong>
+                    </div>
+
+                    <div class="result-item">
+                        <span>(=) Lucro Bruto:</span>
+                        <strong id="lucroBrutoResultado">R$ 0,00</strong>
+                    </div>
+
                 </div>
 
             </div>
@@ -237,7 +287,7 @@
     </div>
 
     <script type="module" src="js/main.js"></script>
-    
+
 </body>
 
 
