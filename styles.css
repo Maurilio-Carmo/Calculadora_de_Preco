@@ -43,19 +43,6 @@ header {
     margin-bottom: 6px;
 }
 
-header .icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 15px;
-    background: #2e7d32;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    box-shadow: var(--card-shadow);
-}
-
 header h1 {
     font-size: 24px;
     margin: 0;
@@ -89,7 +76,7 @@ header small {
 
 /* grupo de inputs */
 input[type="text"],
-input[type="decimal"],
+input[type="number"],
 input[type="date"],
 select {
     width: 100%;
@@ -99,7 +86,7 @@ select {
     background: #fbfdfe;
     font-size: 16px;
     color: #23303a;
-    min-width: 60px;
+    min-width: 80px;
 }
 
 .small-input {
@@ -221,19 +208,27 @@ select {
 }
 
 .icon-circle {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
+    width: 65px;
+    height: 65px;
+    border-radius: var(--radius);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     color: white;
+    min-width: 65px;
 }
 
-.ic-buy { background: var(--orange); }
+.icon-circle img.icon {
+    width: 45px;
+    height: 45px;
+    display: block;
+}
+
+.ic-calc { background: var(--green); }
+.ic-cart { background: var(--orange); }
 .ic-sell { background: var(--green); }
-.ic-profit { background: var(--accent); }
+.ic-graf { background: var(--accent); }
 
 /* lista de resultados */
 .result-list {
