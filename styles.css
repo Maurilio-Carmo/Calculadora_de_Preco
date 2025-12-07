@@ -135,6 +135,7 @@ select {
 
 .section-title {
     white-space: nowrap;
+    min-width: 120px;
     font-weight: 600;
     color: #2b3b43;
     margin-bottom: 8px;
