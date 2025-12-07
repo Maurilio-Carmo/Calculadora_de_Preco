@@ -2,9 +2,10 @@
 
 import { processar } from "./controller.js";
 
-// todos inputs da tela acionam cálculo em tempo real
-document.querySelectorAll("input").forEach(campo => {
+// aciona cálculo em tempo real para inputs e selects
+document.querySelectorAll("input, select").forEach(campo => {
     campo.addEventListener("input", processar);
+    campo.addEventListener("change", processar);
 });
 
 // Carrega tributacoes.json
