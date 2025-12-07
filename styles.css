@@ -86,7 +86,7 @@ select {
     background: #fbfdfe;
     font-size: 16px;
     color: #23303a;
-    min-width: 80px;
+    min-width: 85px;
 }
 
 .small-input {
@@ -273,32 +273,32 @@ select {
 
 @media (max-width: 480px) {
 
-    .body {
-        padding: 5px;
-    }
-
+    /* Faz a linha virar grid: 1fr para label, 85px para input */
     .linha {
-        flex-direction: column;
-        align-items: flex-start;
-        max-width: 100%;
-    }
-
-    .top-row {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 85px;
+        grid-auto-rows: auto;
         align-items: center;
-        white-space: nowrap;
+        gap: 6px 6px;
+        width: 100%;
     }
 
-    .col-label,
-    .col-input {
-        width: 100%;
+    /* Label na coluna 1, quebra quando necessário */
+    .col-label {
+        grid-column: 1 / 2;
+        white-space: normal;
         text-align: left !important;
     }
 
+    /* Input na coluna 2, largura fixa */
+    .col-input {
+        grid-column: 2 / 3;
+        width: 85px !important;
+    }
+
+    /* Valor ocupa as duas colunas na linha de baixo e é alinhado à direita */
     .col-value {
-        width: 100%;
+        grid-column: 1 / -1;
         text-align: right !important;
     }
 }
