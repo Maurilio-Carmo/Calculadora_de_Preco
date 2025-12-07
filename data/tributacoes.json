@@ -1,0 +1,122 @@
+[
+  {
+    "tributacao": "F00",
+    "descricao": "Fonte",
+    "cst": "60",
+    "aliquota": 0,
+    "reducao": 0,
+    "fecop": 0,
+    "cupom": 0,
+    "interestadual": 0
+  },
+  {
+    "tributacao": "F61",
+    "descricao": "Fonte",
+    "cst": "61",
+    "aliquota": 0,
+    "reducao": 0,
+    "fecop": 0,
+    "cupom": 0,
+    "interestadual": 0
+  },
+  {
+    "tributacao": "I00",
+    "descricao": "Isento",
+    "cst": "40",
+    "aliquota": 0,
+    "reducao": 0,
+    "fecop": 0,
+    "cupom": 0,
+    "interestadual": 0
+  },
+  {
+    "tributacao": "N00",
+    "descricao": "Não Tributado",
+    "cst": "41",
+    "aliquota": 0,
+    "reducao": 0,
+    "fecop": 0,
+    "cupom": 0,
+    "interestadual": 0
+  },
+  {
+    "tributacao": "R05",
+    "descricao": "Redução 72%",
+    "cst": "20",
+    "aliquota": 20,
+    "reducao": 72,
+    "fecop": 0,
+    "cupom": 5.6,
+    "interestadual": 12
+  },
+  {
+    "tributacao": "R07",
+    "descricao": "Redução 65%",
+    "cst": "90",
+    "aliquota": 20,
+    "reducao": 65,
+    "fecop": 0,
+    "cupom": 7,
+    "interestadual": 12
+  },
+  {
+    "tributacao": "R08",
+    "descricao": "Redução 56%",
+    "cst": "20",
+    "aliquota": 20,
+    "reducao": 56,
+    "fecop": 0,
+    "cupom": 8.8,
+    "interestadual": 12
+  },
+  {
+    "tributacao": "R12",
+    "descricao": "Redução 40%",
+    "cst": "90",
+    "aliquota": 20,
+    "reducao": 40,
+    "fecop": 0,
+    "cupom": 12,
+    "interestadual": 12
+  },
+  {
+    "tributacao": "T20",
+    "descricao": "Tributado 20%",
+    "cst": "00",
+    "aliquota": 20,
+    "reducao": 0,
+    "fecop": 0,
+    "cupom": 20,
+    "interestadual": 12
+  },
+  {
+    "tributacao": "T28",
+    "descricao": "Tributado 28%",
+    "cst": "90",
+    "aliquota": 28,
+    "reducao": 0,
+    "fecop": 0,
+    "cupom": 28,
+    "interestadual": 12
+  },
+  {
+    "tributacao": "T30",
+    "descricao": "Tributado 30%",
+    "cst": "90",
+    "aliquota": 28,
+    "reducao": 0,
+    "fecop": 2,
+    "cupom": 30,
+    "interestadual": 12
+  },
+  {
+    "tributacao": "T90",
+    "descricao": "Tributado 90",
+    "cst": "90",
+    "aliquota": 20,
+    "reducao": 0,
+    "fecop": 0,
+    "cupom": 20,
+    "interestadual": 12
+  }
+]
