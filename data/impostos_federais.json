@@ -1,0 +1,79 @@
+[
+  {
+    "imposto_federal": "Normal",
+    "cst_entrada_real": "50",
+    "cst_saida_real": "01",
+    "aliq_entrada_real": 9.25,
+    "aliq_saida_real": 9.25,
+    "aliq_entrada_presumido": 3.65,
+    "aliq_saida_presumido": 3.65,
+    "cst_entrada_simples": "98",
+    "cst_saida_simples": "49"
+  },
+  {
+    "imposto_federal": "Monofásico",
+    "cst_entrada_real": "70",
+    "cst_saida_real": "04",
+    "aliq_entrada_real": 0,
+    "aliq_saida_real": 0,
+    "aliq_entrada_presumido": 0,
+    "aliq_saida_presumido": 0,
+    "cst_entrada_simples": "98",
+    "cst_saida_simples": "49"
+  },
+  {
+    "imposto_federal": "Aliquota 0",
+    "cst_entrada_real": "73",
+    "cst_saida_real": "06",
+    "aliq_entrada_real": 0,
+    "aliq_saida_real": 0,
+    "aliq_entrada_presumido": 0,
+    "aliq_saida_presumido": 0,
+    "cst_entrada_simples": "98",
+    "cst_saida_simples": "49"
+  },
+  {
+    "imposto_federal": "Substituto",
+    "cst_entrada_real": "75",
+    "cst_saida_real": "05",
+    "aliq_entrada_real": 0,
+    "aliq_saida_real": 3.65,
+    "aliq_entrada_presumido": 0,
+    "aliq_saida_presumido": 3.65,
+    "cst_entrada_simples": "98",
+    "cst_saida_simples": "49"
+  },
+  {
+    "imposto_federal": "Sem Incidencia",
+    "cst_entrada_real": "74",
+    "cst_saida_real": "08",
+    "aliq_entrada_real": 0,
+    "aliq_saida_real": 0,
+    "aliq_entrada_presumido": 0,
+    "aliq_saida_presumido": 0,
+    "cst_entrada_simples": "98",
+    "cst_saida_simples": "49"
+  },
+  {
+    "imposto_federal": "Suspensão",
+    "cst_entrada_real": "72",
+    "cst_saida_real": "09",
+    "aliq_entrada_real": 0,
+    "aliq_saida_real": 0,
+    "aliq_entrada_presumido": 0,
+    "aliq_saida_presumido": 0,
+    "cst_entrada_simples": "98",
+    "cst_saida_simples": "49"
+  },
+  {
+    "imposto_federal": "Aliquota 0 - Sem Crédito",
+    "cst_entrada_real": "70",
+    "cst_saida_real": "06",
+    "aliq_entrada_real": 0,
+    "aliq_saida_real": 0,
+    "aliq_entrada_presumido": 0,
+    "aliq_saida_presumido": 0,
+    "cst_entrada_simples": "98",
+    "cst_saida_simples": "49"
+  }
+]
