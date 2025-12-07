@@ -286,7 +286,7 @@ select {
     /* Label na coluna 1, quebra quando necessário */
     .col-label {
         grid-column: 1 / 2;
-        white-space: normal;
+        white-space: nowrap;
         text-align: left !important;
     }
 
