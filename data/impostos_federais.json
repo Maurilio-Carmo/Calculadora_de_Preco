@@ -64,16 +64,5 @@
     "aliq_saida_presumido": 0,
     "cst_entrada_simples": "98",
     "cst_saida_simples": "49"
-  },
-  {
-    "imposto_federal": "Aliquota 0 - Sem Crédito",
-    "cst_entrada_real": "70",
-    "cst_saida_real": "06",
-    "aliq_entrada_real": 0,
-    "aliq_saida_real": 0,
-    "aliq_entrada_presumido": 0,
-    "aliq_saida_presumido": 0,
-    "cst_entrada_simples": "98",
-    "cst_saida_simples": "49"
   }
 ]

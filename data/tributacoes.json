@@ -10,16 +10,6 @@
     "interestadual": 0
   },
   {
-    "tributacao": "F61",
-    "descricao": "Fonte",
-    "cst": "61",
-    "aliquota": 0,
-    "reducao": 0,
-    "fecop": 0,
-    "cupom": 0,
-    "interestadual": 0
-  },
-  {
     "tributacao": "I00",
     "descricao": "Isento",
     "cst": "40",
@@ -107,16 +97,6 @@
     "reducao": 0,
     "fecop": 2,
     "cupom": 30,
-    "interestadual": 12
-  },
-  {
-    "tributacao": "T90",
-    "descricao": "Tributado 90",
-    "cst": "90",
-    "aliquota": 20,
-    "reducao": 0,
-    "fecop": 0,
-    "cupom": 20,
     "interestadual": 12
   }
 ]
