@@ -15,7 +15,7 @@ Aplicação web estruturada para cálculo de preço de venda, margem, lucro brut
 A solução está publicada no GitHub Pages.
 Não há instalação, dependências ou processo de clonagem.
 
-**[https://maurilio-carmo.github.io/Calculadora_de_Impostos/](https://maurilio-carmo.github.io/Calculadora_de_Impostos/)**
+**[https://maurilio-carmo.github.io/Calculadora_de_Preco/](https://maurilio-carmo.github.io/Calculadora_de_Preco/)**
 
 Toda a operação é executada no front-end.
 
