@@ -27,9 +27,9 @@
         <div class="card left">
         
             <!-- REGIME -->
-            <div style="display:flex;align-items:center;gap:12px">
-                <label for="regime" class="section-title">Regime:</label>
-                <select id="regime" class="input" style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+                <label for="regime" class="section-title required">Regime:</label>
+                <select id="regime" class="input" style="flex:1" required>
                     <option value="">Selecione...</option>
                     <option value="Real">Lucro Real</option>
                     <option value="Presumido">Lucro Presumido</option>
@@ -38,36 +38,36 @@
             </div>
         
             <!-- TRIBUTAÇÃO -->
-            <div style="display:flex;align-items:center;gap:12px">
-                <label for="tributacao" class="section-title">Imp. Estadual:</label>
-                <select id="tributacao" class="input" style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+                <label for="tributacao" class="section-title required">Imp. Estadual:</label>
+                <select id="tributacao" class="input" style="flex:1" required>
                     <option value="">Carregando...</option>
                 </select>
             </div>
         
             <!-- IMPOSTO FEDERAL -->
-            <div style="display:flex;align-items:center;gap:12px">
-                <label for="impFederal" class="section-title">Imp. Federal:</label>
-                <select id="impFederal" class="input" style="flex:1">
+            <div style="display:flex;align-items:center;gap:8px">
+                <label for="impFederal" class="section-title required">Imp. Federal:</label>
+                <select id="impFederal" class="input" style="flex:1" required>
                     <option value="">Carregando...</option>
                 </select>
             </div>
         
             <!-- Preço e Margem -->
-            <div style="display:flex;gap:14px;align-items:center;justify-content:space-between">
+            <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
 
-                <div style="flex:1">
-                    <div class="section-title">Preço de compra:</div>
-                    <div style="display:flex;gap:8px;align-items:center">
+                <div style="flex:1;">
+                    <label for="precoCompra" class="section-title required">Preço de compra:</label>
+                    <div style="display:flex;gap:6px;align-items:center">
                         <div class="badge">R$</div>
-                        <input id="precoCompra" type="number" class="input" placeholder="0,00" />
+                        <input id="precoCompra" type="number" class="input" placeholder="0,00" required />
                     </div>
                 </div>
 
                 <div style="flex:1;">
-                    <div class="section-title">Margem desejada:</div>
-                    <div style="display:flex;gap:8px;align-items:center">
-                        <input id="margemDesejada" type="number" class="input" placeholder="0,00" />
+                    <label for="margemDesejada" class="section-title required">Margem desejada:</label>
+                    <div style="display:flex;gap:6px;align-items:center">
+                        <input id="margemDesejada" type="number" class="input" placeholder="0,00" required/>
                         <div class="badge">%</div>
                     </div>
                 </div>
