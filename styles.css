@@ -135,7 +135,7 @@ select {
 
 .section-title {
     white-space: nowrap;
-    min-width: 120px;
+    min-width: 125px;
     font-weight: 600;
     color: #2b3b43;
     margin-bottom: 8px;
@@ -149,6 +149,13 @@ select {
 
 .muted {
     color: var(--muted);
+}
+
+/* indicador de campo obrigatório */
+.required::after {
+    content: " *";
+    color: #e53935;
+    font-weight: 700;
 }
 
 /* linhas padronizadas */
