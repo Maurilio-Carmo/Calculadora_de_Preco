@@ -1,5 +1,7 @@
 // visualizacao.js
 
+import { currentDate } from "./utils.js";
+
 export function atualizarTela(v) {
 
     // valores de entrada
@@ -29,6 +31,8 @@ export function atualizarTela(v) {
     document.getElementById("markupResultado").textContent = v.markup.toFixed(2) + " %";
 
     // lista detalhada
+    document.getElementById("dataAtual").value = currentDate();
+
     document.getElementById("precoVendaDetalhe").textContent = "R$ " + v.precoVenda.toFixed(2);
 
     document.getElementById("pisCofinsPagarDetalhe").textContent = "R$ " + v.pisCofinsPagar.toFixed(2);
