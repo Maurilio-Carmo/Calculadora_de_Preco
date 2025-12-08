@@ -29,4 +29,7 @@ export function atualizarPisCofins(impostosFederaisData) {
 
     document.getElementById("creditoPisCofins").value = entrada.toFixed(2);
     document.getElementById("vendaPisCofins").value = saída.toFixed(2);
+
+    // fechamento do fluxo
+    processar();
 }

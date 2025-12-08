@@ -18,4 +18,7 @@ export function atualizarICMS(tributacaoData) {
 
     if (typeof calcularCreditoICMS === "function") calcularCreditoICMS();
     if (typeof calcularVendaICMS === "function") calcularVendaICMS();
+
+    // fechamento do fluxo
+    processar();
 }
