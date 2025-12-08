@@ -46,9 +46,14 @@ fetch('./data/impostos_federais.json')
 
 
 // Eventos para disparar atualização
-document.getElementById("regime").addEventListener("change", () => atualizarPisCofins(impostosFederaisData));
-document.getElementById("tributacao").addEventListener("change", () => atualizarICMS(tributacaoData));
-document.getElementById("impFederal").addEventListener("change", () => atualizarPisCofins(impostosFederaisData));
+document.getElementById("regime")
+  .addEventListener("change", () => atualizarPisCofins(impostosFederaisData));
+
+document.getElementById("impFederal")
+  .addEventListener("change", () => atualizarPisCofins(impostosFederaisData));
+
+document.getElementById("tributacao")
+  .addEventListener("change", () => atualizarICMS(tributacaoData));
 
 // executa 1x ao abrir a página
 processar();
