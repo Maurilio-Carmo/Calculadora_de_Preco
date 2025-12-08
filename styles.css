@@ -71,7 +71,6 @@ header small {
     grid-template-columns: 1fr;
     gap: 12px;
     padding: var(--padding);
-    max-width: 500px;
 }
 
 /* grupo de inputs */
