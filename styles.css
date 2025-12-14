@@ -62,14 +62,12 @@
     --orange: #f9c36a;
 
     /* Extras */
-    --badge-bg: #2f3b4d;
+    --badge-bg: #3a4350;
     --danger: #f07a7a;
 
     /* Sombra */
     --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
-
-
 
 * {
     box-sizing: border-box;
@@ -231,7 +229,7 @@ select {
     white-space: nowrap;
     min-width: 125px;
     font-weight: 600;
-    color: #2b3b43;
+    color: var(--text);
     margin-bottom: 8px;
     font-size: 16px;
 }
@@ -362,11 +360,11 @@ select {
 @media (max-width: 900px) {
 
     .theme-toggle {
-        right: 12px;
+        right: 8px;
     }
 
     .body {
-        padding: 5px;
+        padding: 12px;
     }
 
     .container {
@@ -376,6 +374,10 @@ select {
 }
 
 @media (max-width: 480px) {
+
+    body {
+        padding: 10px;
+    }
 
     /* Faz a linha virar grid: 1fr para label, 85px para input */
     .linha {
