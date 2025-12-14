@@ -226,6 +226,7 @@ select {
 }
 
 .section-title {
+    display: block;
     white-space: nowrap;
     min-width: 125px;
     font-weight: 600;
