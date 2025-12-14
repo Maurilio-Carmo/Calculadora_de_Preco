@@ -5,7 +5,7 @@
     --bg-gradient-end: #eef0f2;
     --panel: #ffffff;
     --panel-soft: #f8fafc;
-    --text: #263238;
+    --text: #060808;
     --text-strong: #2b3b43;
     --muted: #8b9198;
 
@@ -299,7 +299,7 @@ select {
 .highlight {
     padding: 14px;
     border-radius: var(--radius);
-    background: var(--panel-soft);
+    background: var(--panel);
     box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
