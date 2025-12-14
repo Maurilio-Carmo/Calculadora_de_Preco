@@ -357,6 +357,20 @@ select {
     border-top: 1px dashed var(--divider);
 }
 
+footer {
+    text-align: center;
+    padding: 8px 0;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    margin: 0;
+    font-size: 12px;
+}
+
 /* responsividade desktop > mobile */
 @media (max-width: 900px) {
 
