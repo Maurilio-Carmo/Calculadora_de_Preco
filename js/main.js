@@ -57,9 +57,7 @@ document.getElementById("tributacao")
 // executa 1x ao abrir a página
 processar();
 
-/* ===========================
-   Tema claro / escuro
-   =========================== */
+// Tema claro / escuro
 
 const btnTheme = document.getElementById("toggleTheme");
 const iconTheme = document.getElementById("themeIcon");
