@@ -1,26 +1,109 @@
 /* variáveis e ajustes globais */
 :root {
+    /* Base */
     --bg: #f6f7f9;
+    --bg-gradient-end: #eef0f2;
     --panel: #ffffff;
+    --text: #263238;
+    --text-strong: #2b3b43;
     --muted: #8b9198;
+
+    /* Bordas e divisões */
+    --border: #e0e4e7;
+    --border-soft: #edf1f3;
+    --divider: #eef2f3;
+
+    /* Inputs */
+    --input-bg: #fbfdfe;
+    --input-text: #23303a;
+
+    /* Destaques */
     --accent: #5aa2ff;
     --green: #57b86a;
     --orange: #f6a623;
-    --light: #eef2f4;
+
+    /* Extras */
+    --badge-bg: #eef6ff;
+    --danger: #e53935;
+
+    /* Sombras */
     --card-shadow: 0 6px 18px rgba(30, 40, 50, 0.06);
+
+    /* Layout */
     --radius: 16px;
     --padding: 18px;
+}
+
+[data-theme="dark"] {
+    --bg: #121417;
+    --bg-gradient-end: #0d0f12;
+    --panel: #1c1f24;
+
+    --text: #e6e9ed;
+    --text-strong: #ffffff;
+    --muted: #9aa1a9;
+
+    --border: #2a2f36;
+    --border-soft: #24282e;
+    --divider: #2f343c;
+
+    --input-bg: #161a1f;
+    --input-text: #e6e9ed;
+
+    --badge-bg: #1f2a3a;
+
+    --accent: #6aa8ff;
+    --green: #63c27a;
+    --orange: #f7b14a;
+
+    --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
 * {
     box-sizing: border-box;
 }
 
+/* Tema */
+.theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: calc((100vw - 985px) / 2 + 18px);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    background: var(--panel);
+    box-shadow: var(--card-shadow);
+    color: var(--text);
+    z-index: 9999;
+}
+
+.theme-toggle:hover {
+    opacity: 0.85;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.theme-toggle img {
+    width: 22px;
+    height: 22px;
+    display: block;
+    pointer-events: none;
+}
+
+/* corpo principal */
 body {
     font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     margin: 0 auto;
-    background: linear-gradient(180deg, var(--bg), #eef0f2);
-    color: #263238;
+    background: linear-gradient(180deg, var(--bg), var(--bg-gradient-end));
+    color: var(--text);
     padding: var(--padding);
     max-width: 985px;
     -webkit-font-smoothing: antialiased;
@@ -47,7 +130,7 @@ header h1 {
     font-size: 24px;
     margin: 0;
     font-weight: 600;
-    color: #2b3b43;
+    color: var(--text-strong);
 }
 
 header small {
@@ -80,11 +163,11 @@ input[type="date"],
 select {
     width: 100%;
     padding: 8px 12px;
-    border: 1px solid #e0e4e7;
+    border: 1px solid var(--border);
     border-radius: 6px;
-    background: #fbfdfe;
+    background: var(--input-bg);
     font-size: 16px;
-    color: #23303a;
+    color: var(--input-text);
     min-width: 85px;
 }
 
@@ -264,8 +347,11 @@ select {
 }
 
 /* responsividade desktop > mobile */
-
 @media (max-width: 900px) {
+
+    .theme-toggle {
+        right: 12px;
+    }
 
     .body {
         padding: 5px;
