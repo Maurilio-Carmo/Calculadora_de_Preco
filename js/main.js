@@ -44,16 +44,51 @@ fetch('./data/impostos_federais.json')
         });
     });
 
-
 // Eventos para disparar atualização
 document.getElementById("regime")
-  .addEventListener("change", () => atualizarPisCofins(impostosFederaisData));
+    .addEventListener("change", () => atualizarPisCofins(impostosFederaisData));
 
 document.getElementById("impFederal")
-  .addEventListener("change", () => atualizarPisCofins(impostosFederaisData));
+    .addEventListener("change", () => atualizarPisCofins(impostosFederaisData));
 
 document.getElementById("tributacao")
-  .addEventListener("change", () => atualizarICMS(tributacaoData));
+    .addEventListener("change", () => atualizarICMS(tributacaoData));
 
 // executa 1x ao abrir a página
 processar();
+
+/* ===========================
+   Tema claro / escuro
+   =========================== */
+
+const btnTheme = document.getElementById("toggleTheme");
+const iconTheme = document.getElementById("themeIcon");
+const root = document.documentElement;
+
+// aplica tema salvo
+const temaSalvo = localStorage.getItem("theme");
+
+if (temaSalvo === "dark") {
+    root.setAttribute("data-theme", "dark");
+    if (iconTheme) iconTheme.src = "icons/sun.png";
+} else {
+    if (iconTheme) iconTheme.src = "icons/moon.png";
+}
+
+// alterna tema
+if (btnTheme) {
+    btnTheme.addEventListener("click", () => {
+        const temaAtual = root.getAttribute("data-theme");
+
+        if (temaAtual === "dark") {
+            root.removeAttribute("data-theme");
+            localStorage.removeItem("theme");
+            if (iconTheme) iconTheme.src = "icons/moon.png";
+        } else {
+            root.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+            if (iconTheme) iconTheme.src = "icons/sun.png";
+        }
+    });
+}
+
