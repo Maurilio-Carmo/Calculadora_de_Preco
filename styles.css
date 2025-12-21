@@ -350,6 +350,7 @@ select {
     border-radius: 6px;
     background: var(--panel-soft);
     border: 1px solid var(--border-soft);
+    transition: background 0.35s, color 0.35s, border-color 0.35s;
 }
 
 .result-footer {
