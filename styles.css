@@ -28,7 +28,7 @@
     --danger: #e53935;
 
     /* Sombras */
-    --card-shadow: 0 6px 18px rgba(30, 40, 50, 0.06);
+    --card-shadow: 0 6px 20px rgba(30, 40, 50, 0.25);
 
     /* Layout */
     --radius: 16px;
@@ -45,7 +45,7 @@
     /* Texto */
     --text: #e7ebef;
     --text-strong: #ffffff;
-    --muted: #b6bec8;
+    --muted: #c5cdd5;
 
     /* Bordas */
     --border: #3a4350;
@@ -66,7 +66,7 @@
     --danger: #f07a7a;
 
     /* Sombra */
-    --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -88,17 +88,14 @@
     box-shadow: var(--card-shadow);
     color: var(--text);
     z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;    
 }
 
 .theme-toggle:hover {
     opacity: 0.85;
-}
-
-.theme-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
 }
 
 .theme-toggle img {
@@ -117,6 +114,8 @@ body {
     padding: var(--padding);
     max-width: 985px;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background 0.35s, color 0.35s;
 }
 
 /* grid principal */
@@ -157,6 +156,7 @@ header small {
     border-radius: var(--radius);
     padding: var(--padding);
     box-shadow: var(--card-shadow);
+    transition: background 0.35s, color 0.35s;
 }
 
 .left {
@@ -179,6 +179,7 @@ select {
     font-size: 16px;
     color: var(--input-text);
     min-width: 85px;
+    transition: background 0.35s, color 0.35s, border-color 0.35s;
 }
 
 .small-input {
@@ -214,7 +215,7 @@ select {
     transform: translateY(-50%);
     pointer-events: none;
     font-size: 14px;
-    color: #666;
+    color: var(--muted);
 }
 
 /* blocos agrupados */
@@ -223,6 +224,7 @@ select {
     border-radius: 8px;
     padding: 12px;
     background: var(--panel-soft);
+    transition: background 0.35s, color 0.35s, border-color 0.35s;
 }
 
 .section-title {
@@ -307,6 +309,7 @@ select {
     align-items: center;
     text-align: center;
     gap: 6px;
+    transition: background 0.35s, color 0.35s, box-shadow 0.35s;
 }
 
 .icon-circle {
@@ -374,12 +377,12 @@ footer p {
 /* responsividade desktop > mobile */
 @media (max-width: 900px) {
 
-    .theme-toggle {
-        right: 8px;
+    body {
+        padding: 12px;
     }
 
-    .body {
-        padding: 12px;
+    .theme-toggle {
+        right: 8px;
     }
 
     .container {
