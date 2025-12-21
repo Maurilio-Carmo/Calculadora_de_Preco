@@ -17,7 +17,7 @@
     <div class="container">
         <header>
             <div class="icon-circle ic-calc">
-                <img src="icons/calculadora.png" class="icon" alt="">
+                <img src="icons/calculadora.png" class="icon" alt="Calculadora">
             </div>
             <div>
                 <h1>Calculadora de Preço</h1>
@@ -66,14 +66,14 @@
                     <label for="precoCompra" class="section-title required">Preço de compra:</label>
                     <div style="display:flex;gap:6px;align-items:center">
                         <div class="badge">R$</div>
-                        <input id="precoCompra" type="number" class="input" placeholder="0,00" required />
+                        <input id="precoCompra" type="number" class="input" min="0" placeholder="0,00" required />
                     </div>
                 </div>
 
                 <div style="flex:1;">
                     <label for="margemDesejada" class="section-title required">Margem desejada:</label>
                     <div style="display:flex;gap:6px;align-items:center">
-                        <input id="margemDesejada" type="number" class="input" placeholder="0,00" required/>
+                        <input id="margemDesejada" type="number" class="input" min="0" placeholder="0,00" required/>
                         <div class="badge">%</div>
                     </div>
                 </div>
@@ -87,8 +87,7 @@
                 <div class="linha">
                     <label for="creditoPisCofins" class="col-label small muted">(-) Crédito PIS/COFINS:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="creditoPisCofins" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="creditoPisCofins" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div id="valorCreditoPisCofins" class="col-value small muted">R$ 0,00</div>
@@ -97,8 +96,7 @@
                 <div class="linha">
                     <label for="creditoICMS" class="col-label small muted">(-) Crédito ICMS:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="creditoICMS" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="creditoICMS" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div id="valorCreditoICMS" class="col-value small muted">R$ 0,00</div>
@@ -107,8 +105,7 @@
                 <div class="linha">
                     <label for="reducaoBCICMS" class="col-label small muted">Red. da base de cálculo:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="reducaoBCICMS" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="reducaoBCICMS" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div class="col-value"></div>
@@ -117,8 +114,7 @@
                 <div class="linha">
                     <label for="ICMSST" class="col-label small muted"> (+) ICMS ST:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="ICMSST" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="ICMSST" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div id="valorICMSST" class="col-value small muted">R$ 0,00</div>
@@ -127,8 +123,7 @@
                 <div class="linha">
                     <label for="reducaoBCST" class="col-label small muted">Red. da base de cálculo ST:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="reducaoBCST" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="reducaoBCST" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div class="col-value"></div>
@@ -137,8 +132,7 @@
                 <div class="linha">
                     <label for="IPI" class="col-label small muted">(+) IPI:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="IPI" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="IPI" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div id="valorIPI" class="col-value small muted">R$ 0,00</div>
@@ -153,8 +147,7 @@
                 <div class="linha">
                     <label for="vendaPisCofins" class="col-label small muted">PIS/COFINS Venda:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="vendaPisCofins" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="vendaPisCofins" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div id="valorVendaPisCofins" class="col-value small muted">R$ 0,00</div>
@@ -163,8 +156,7 @@
                 <div class="linha">
                     <label for="vendaICMS" class="col-label small muted">ICMS Venda:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="vendaICMS" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="vendaICMS" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div id="valorVendaICMS" class="col-value small muted">R$ 0,00</div>
@@ -173,8 +165,7 @@
                 <div class="linha">
                     <label for="reducaoBCSaida" class="col-label small muted">Red. da base de cálculo Saida:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="reducaoBCSaida" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="reducaoBCSaida" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div class="col-value"></div>
@@ -183,8 +174,7 @@
                 <div class="linha">
                     <label for="aliquotaCBS" class="col-label small muted">Alíquota CBS:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="aliquotaCBS" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="aliquotaCBS" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div class="col-value"></div>
@@ -193,8 +183,7 @@
                 <div class="linha">
                     <label for="aliquotaReducaoCBS" class="col-label small muted">Alíquota Redução CBS:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="aliquotaReducaoCBS" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="aliquotaReducaoCBS" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div class="col-value"></div>
@@ -203,8 +192,7 @@
                 <div class="linha">
                     <label for="aliquotaIBSUF" class="col-label small muted">Alíquota IBS UF:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="aliquotaIBSUF" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="aliquotaIBSUF" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div class="col-value"></div>
@@ -213,8 +201,7 @@
                 <div class="linha">
                     <label for="aliquotaReducaoIBSUF" class="col-label small muted">Alíquota Redução IBS UF:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="aliquotaReducaoIBSUF" type="number" class="small-input percent-input" min="0"
-                            max="99" placeholder="0,00">
+                        <input id="aliquotaReducaoIBSUF" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div class="col-value"></div>
@@ -223,8 +210,7 @@
                 <div class="linha">
                     <label for="IBSmun" class="col-label small muted">IBS Mun:</label>
                     <div class="col-input percent-wrapper">
-                        <input id="IBSmun" type="number" class="small-input percent-input" min="0" max="99"
-                            placeholder="0,00">
+                        <input id="IBSmun" type="number" class="small-input percent-input" min="0" max="99" placeholder="0,00">
                         <span class="percent-suffix">%</span>
                     </div>
                     <div class="col-value"></div>
@@ -239,7 +225,7 @@
             <div class="highlights-one">
                 <div class="highlight">
                     <div class="icon-circle ic-cart">
-                        <img src="icons/carrinho.png" class="icon" alt="">
+                        <img src="icons/carrinho.png" class="icon" alt="carrinho">
                     </div>
                     <div class="label muted">Preço de Compra</div>
                     <div class="amt">
@@ -249,7 +235,7 @@
 
                 <div class="highlight">
                     <div class="icon-circle ic-sell">
-                        <img src="icons/etiqueta.png" class="icon" alt="">
+                        <img src="icons/etiqueta.png" class="icon" alt="etiqueta">
                     </div>
                     <div class="label muted">Preço de Venda</div>
                     <div class="amt">
@@ -259,7 +245,7 @@
 
                 <div class="highlight">
                     <div class="icon-circle ic-graf">
-                        <img src="icons/lucro.png" class="icon" alt="">
+                        <img src="icons/lucro.png" class="icon" alt="lucro">
                     </div>
                     <div class="label muted">Lucro Bruto</div>
                     <div class="amt">
