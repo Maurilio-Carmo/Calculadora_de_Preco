@@ -3,6 +3,12 @@
 import { ELEMENTS, REGIMES } from '../config/constants.js';
 import { formatInputValue } from '../utils/formatters.js';
 
+const REGIME_SUFFIX = {
+  [REGIMES.REAL]: 'real',
+  [REGIMES.PRESUMIDO]: 'presumido',
+  [REGIMES.SIMPLES]: 'simples'
+};
+
 /**
  * Atualiza campos de PIS/COFINS baseado no regime e imposto federal
  */
@@ -16,21 +22,11 @@ export function updatePisCofins(impostosFederaisData, onComplete) {
   if (regime && impFederal) {
     const item = impostosFederaisData.find(i => i.imposto_federal === impFederal);
     
-    if (item) {
-      switch (regime) {
-        case REGIMES.REAL:
-          entrada = item.aliq_entrada_real ?? 0;
-          saida = item.aliq_saida_real ?? 0;
-          break;
-        case REGIMES.PRESUMIDO:
-          entrada = item.aliq_entrada_presumido ?? 0;
-          saida = item.aliq_saida_presumido ?? 0;
-          break;
-        case REGIMES.SIMPLES:
-          entrada = item.aliq_entrada_simples ?? 0;
-          saida = item.aliq_saida_simples ?? 0;
-          break;
-      }
+    const suffix = REGIME_SUFFIX[regime];
+
+    if (item && suffix) {
+      entrada = item[`aliq_entrada_${suffix}`] ?? 0;
+      saida = item[`aliq_saida_${suffix}`] ?? 0;
     }
   }
   
