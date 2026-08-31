@@ -23,6 +23,10 @@ const STATIC_ASSETS = [
   './icons/lucro.png'
 ];
 
+const STATIC_ASSET_PATHS = new Set(
+  STATIC_ASSETS.map(asset => new URL(asset, self.location).pathname)
+);
+
 const DYNAMIC_ASSETS_PATTERNS = [
   /\/css\//,
   /\/src\//,
@@ -65,7 +69,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  if (STATIC_ASSETS.some(asset => url.pathname.endsWith(asset.replace('./', '')))) {
+  if (STATIC_ASSET_PATHS.has(url.pathname)) {
     event.respondWith(cacheFirst(request, STATIC_CACHE));
     return;
   }

@@ -9,12 +9,15 @@ const MODULE = 'Performance';
  */
 export function addNativeLazyLoading() {
   const images = document.querySelectorAll('img:not([loading])');
-  
+
   images.forEach(img => {
-    img.loading = 'lazy';
+    // Ícones do header e dos highlights principais são sempre visíveis
+    // acima da dobra — marcá-los como lazy atrasaria o LCP sem ganho real.
+    const aboveFold = img.closest('header, .highlights-one, .highlights-two');
+    img.loading = aboveFold ? 'eager' : 'lazy';
   });
-  
-  logger.debug(MODULE, `Loading lazy nativo adicionado a ${images.length} imagens`);
+
+  logger.debug(MODULE, `Loading nativo aplicado a ${images.length} imagens`);
 }
 
 /**
@@ -26,7 +29,7 @@ export function initializeContentVisibility() {
     return;
   }
   
-  const lazyContents = document.querySelectorAll('.result-box, .boxed-section');
+  const lazyContents = document.querySelectorAll('.result-box, .boxed-section, .side-menu-list');
   
   lazyContents.forEach(element => {
     element.classList.add('lazy-content');

@@ -6,6 +6,23 @@
     box-sizing: border-box;
 }
 
+/* Padrão global: nenhum elemento exibe barra de rolagem visível
+   (o scroll continua funcionando via mouse/touch/teclado). */
+*,
+html,
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
                  "Helvetica Neue", Arial, "Noto Sans", sans-serif,

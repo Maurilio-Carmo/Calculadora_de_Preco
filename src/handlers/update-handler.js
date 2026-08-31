@@ -102,6 +102,7 @@ async function updateApp() {
 
   try {
     btn?.classList.add('loading');
+    btn?.setAttribute('aria-busy', 'true');
 
     if ('serviceWorker' in navigator) {
       const registration = await navigator.serviceWorker.getRegistration();
@@ -114,11 +115,12 @@ async function updateApp() {
     }
 
     saveInstalledVersion(APP_VERSION);
-    setTimeout(() => window.location.reload(true), 300);
+    setTimeout(() => window.location.reload(), 300);
 
   } catch (error) {
     logger.error(MODULE, 'Erro ao atualizar app', error);
     btn?.classList.remove('loading');
+    btn?.setAttribute('aria-busy', 'false');
     notify.error('Erro na atualização', 'Tente novamente mais tarde');
   }
 }
