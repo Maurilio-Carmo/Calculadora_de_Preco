@@ -7,6 +7,11 @@ import { populateSelect } from '../views/select-renderer.js';
 
 const MODULE = 'DataLoader';
 
+// Tempo mínimo que o shimmer de loading fica visível. Os JSONs são locais e
+// carregam em ~10-20ms — sem esse piso o data-loading liga/desliga rápido
+// demais para o olho perceber como shimmer, e só registra como um "pisca".
+const MIN_LOADING_MS = 350;
+
 let tributacaoData = [];
 let impostosFederaisData = [];
 let faixasSimplesNacionalData = [];
@@ -23,6 +28,24 @@ function setSelectLoading(elementId, loading) {
     select.dataset.loading = 'true';
   } else {
     delete select.dataset.loading;
+  }
+}
+
+/**
+ * Garante que o loading do select fique visível por no mínimo MIN_LOADING_MS,
+ * mesmo quando a tarefa termina quase instantaneamente.
+ */
+async function withMinSelectLoading(elementId, task) {
+  setSelectLoading(elementId, true);
+  const start = performance.now();
+  try {
+    return await task();
+  } finally {
+    const elapsed = performance.now() - start;
+    if (elapsed < MIN_LOADING_MS) {
+      await new Promise(resolve => setTimeout(resolve, MIN_LOADING_MS - elapsed));
+    }
+    setSelectLoading(elementId, false);
   }
 }
 
@@ -75,63 +98,60 @@ async function loadJSON(path, dataName) {
  * Carrega os dados de tributação
  */
 async function loadTributacoes() {
-  setSelectLoading(ELEMENTS.TRIBUTACAO, true);
-  try {
-    const data = await loadJSON(PATHS.TRIBUTACOES, 'tributações');
-    tributacaoData = data;
-    populateSelect(ELEMENTS.TRIBUTACAO, data, { valueKey: 'tributacao', labelKey: 'tributacao' });
-    return data;
-  } catch (error) {
-    notify.error(
-      'Erro ao Carregar Tributações',
-      'Não foi possível carregar as opções de tributação. Algumas funcionalidades podem não funcionar.'
-    );
-    return [];
-  } finally {
-    setSelectLoading(ELEMENTS.TRIBUTACAO, false);
-  }
+  return withMinSelectLoading(ELEMENTS.TRIBUTACAO, async () => {
+    try {
+      const data = await loadJSON(PATHS.TRIBUTACOES, 'tributações');
+      tributacaoData = data;
+      populateSelect(ELEMENTS.TRIBUTACAO, data, { valueKey: 'tributacao', labelKey: 'tributacao' });
+      return data;
+    } catch (error) {
+      notify.error(
+        'Erro ao Carregar Tributações',
+        'Não foi possível carregar as opções de tributação. Algumas funcionalidades podem não funcionar.'
+      );
+      return [];
+    }
+  });
 }
 
 /**
  * Carrega os dados de impostos federais
  */
 async function loadImpostosFederais() {
-  setSelectLoading(ELEMENTS.IMP_FEDERAL, true);
-  try {
-    const data = await loadJSON(PATHS.IMPOSTOS_FEDERAIS, 'impostos federais');
-    impostosFederaisData = data;
-    populateSelect(ELEMENTS.IMP_FEDERAL, data, { valueKey: 'imposto_federal', labelKey: 'imposto_federal' });
-    return data;
-  } catch (error) {
-    notify.error(
-      'Erro ao Carregar Impostos Federais',
-      'Não foi possível carregar as opções de impostos federais.'
-    );
-    return [];
-  } finally {
-    setSelectLoading(ELEMENTS.IMP_FEDERAL, false);
-  }
+  return withMinSelectLoading(ELEMENTS.IMP_FEDERAL, async () => {
+    try {
+      const data = await loadJSON(PATHS.IMPOSTOS_FEDERAIS, 'impostos federais');
+      impostosFederaisData = data;
+      populateSelect(ELEMENTS.IMP_FEDERAL, data, { valueKey: 'imposto_federal', labelKey: 'imposto_federal' });
+      return data;
+    } catch (error) {
+      notify.error(
+        'Erro ao Carregar Impostos Federais',
+        'Não foi possível carregar as opções de impostos federais.'
+      );
+      return [];
+    }
+  });
 }
 
 /**
  * Carrega os dados de faixas do Simples Nacional
  */
 async function loadFaixasSimplesNacional() {
-  setSelectLoading(ELEMENTS.FAIXA_SIMPLES, true);
-  try {
-    const data = await loadJSON(PATHS.FAIXAS_SIMPLES_NACIONAL, 'faixas do Simples Nacional');
-    faixasSimplesNacionalData = data;
-    populateSelect(ELEMENTS.FAIXA_SIMPLES, data, { valueKey: 'faixa', labelKey: 'faixa_descricao' });
-    return data;
-  } catch (error) {
-    notify.error(
-      'Erro ao Carregar Faixas do Simples',
-      'Não foi possível carregar as faixas do Simples Nacional.'
-    );
-    return [];
-  } finally {
-    setSelectLoading(ELEMENTS.FAIXA_SIMPLES, false);
-  }
+  return withMinSelectLoading(ELEMENTS.FAIXA_SIMPLES, async () => {
+    try {
+      const data = await loadJSON(PATHS.FAIXAS_SIMPLES_NACIONAL, 'faixas do Simples Nacional');
+      faixasSimplesNacionalData = data;
+      populateSelect(ELEMENTS.FAIXA_SIMPLES, data, { valueKey: 'faixa', labelKey: 'faixa_descricao' });
+      return data;
+    } catch (error) {
+      notify.error(
+        'Erro ao Carregar Faixas do Simples',
+        'Não foi possível carregar as faixas do Simples Nacional.'
+      );
+      return [];
+    }
+  });
 }
 
 /**
