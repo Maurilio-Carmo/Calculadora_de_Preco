@@ -13,14 +13,14 @@
     z-index: 1000;
     align-items: center;
     justify-content: center;
-    animation: fadeIn 0.2s ease;
+    animation: tooltipOverlayFadeIn var(--duration-moderate) var(--ease-standard);
 }
 
 .tooltip-modal.active {
     display: flex;
 }
 
-@keyframes fadeIn {
+@keyframes tooltipOverlayFadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
@@ -33,7 +33,7 @@
     width: 90%;
     position: relative;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    animation: slideUp 0.3s ease;
+    animation: slideUp var(--duration-enter) var(--ease-spring);
 }
 
 @keyframes slideUp {

@@ -36,17 +36,36 @@
     /* Skeleton Loading */
     --skeleton-start: #d8dce0;
     --skeleton-middle: #e8edf1;
-    
+
     /* Sombras */
     --card-shadow: 0 6px 20px rgba(30, 40, 50, 0.25);
     --hover-shadow: 0 8px 24px rgba(30, 40, 50, 0.3);
-    
+
     /* Layout */
     --radius: 16px;
     --radius-small: 6px;
     --radius-medium: 8px;
     --padding: 14px;
     --gap: 12px;
+
+    /* Accent variants */
+    --accent-soft: var(--badge-bg);
+    --accent-hover: color-mix(in srgb, var(--accent) 85%, #000);
+
+    /* Motion Tokens */
+    --duration-fast: 120ms;
+    --duration-base: 180ms;
+    --duration-moderate: 240ms;
+    --duration-enter: 320ms;
+    --duration-exit: 200ms;
+    --duration-spin-fast: 600ms;
+    --duration-spin-slow: 2000ms;
+    --duration-shimmer: 1500ms;
+
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
 }
 
 [data-theme="dark"] {
@@ -83,8 +102,11 @@
     /* Skeleton Loading */
     --skeleton-start: #3a4350;
     --skeleton-middle: #4a5360;
-    
+
     /* Sombras */
     --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+    /* Accent variants — lighten instead of darken on dark panels */
+    --accent-hover: color-mix(in srgb, var(--accent) 85%, #fff);
 }

@@ -5,12 +5,13 @@
 .side-menu {
     position: fixed;
     top: 0;
-    right: -280px;
+    right: 0;
     width: 280px;
     height: 100dvh;
     background: var(--panel);
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
+    transform: translateX(100%);
+    transition: transform var(--duration-enter) var(--ease-spring);
     z-index: 1002;
 
     /* Layout flex vertical para empurrar footer ao fundo */
@@ -20,7 +21,7 @@
 }
 
 .side-menu.active {
-    right: 0;
+    transform: translateX(0);
 }
 
 /* ============================================================
@@ -195,10 +196,7 @@
     animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-}
+/* .spin keyframe consolidated into css/components/loading.css */
 
 /* ============================================================
    VERSÃO DO APP (somente quando instalado como PWA)
@@ -226,7 +224,6 @@
 @media (max-width: 768px) {
     .side-menu {
         width: 75%;
-        right: -75%;
     }
 
     .side-menu-footer {
@@ -247,6 +244,5 @@
 @media (max-width: 480px) {
     .side-menu {
         width: 60%;
-        right: -60%;
     }
 }
