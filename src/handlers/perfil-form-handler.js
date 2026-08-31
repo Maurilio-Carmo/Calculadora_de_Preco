@@ -6,6 +6,7 @@ import { loadPerfilData, savePerfilData, clearPerfilData } from '../services/per
 import { logger } from '../utils/logger.js';
 import { notify } from '../utils/notifications.js';
 import { eventBus } from '../utils/event-bus.js';
+import { ELEMENTS } from '../config/constants.js';
 
 const MODULE = 'PerfilFormHandler';
 
@@ -23,23 +24,23 @@ export function fillPerfilForm() {
   logger.info(MODULE, 'Preenchendo formulário com dados salvos');
 
   try {
-    document.getElementById('cnpj').value = data.cnpj || '';
-    document.getElementById('razaoSocial').value = data.razao_social || '';
-    document.getElementById('nomeFantasia').value = data.nome_fantasia || '';
-    document.getElementById('cep').value = data.cep || '';
-    document.getElementById('uf').value = data.uf || '';
-    document.getElementById('logradouro').value = data.logradouro || '';
-    document.getElementById('numero').value = data.numero || '';
-    document.getElementById('bairro').value = data.bairro || '';
-    document.getElementById('municipio').value = data.municipio || '';
-    document.getElementById('complemento').value = data.complemento || '';
+    document.getElementById(ELEMENTS.PERFIL_CNPJ).value = data.cnpj || '';
+    document.getElementById(ELEMENTS.PERFIL_RAZAO_SOCIAL).value = data.razao_social || '';
+    document.getElementById(ELEMENTS.PERFIL_NOME_FANTASIA).value = data.nome_fantasia || '';
+    document.getElementById(ELEMENTS.PERFIL_CEP).value = data.cep || '';
+    document.getElementById(ELEMENTS.PERFIL_UF).value = data.uf || '';
+    document.getElementById(ELEMENTS.PERFIL_LOGRADOURO).value = data.logradouro || '';
+    document.getElementById(ELEMENTS.PERFIL_NUMERO).value = data.numero || '';
+    document.getElementById(ELEMENTS.PERFIL_BAIRRO).value = data.bairro || '';
+    document.getElementById(ELEMENTS.PERFIL_MUNICIPIO).value = data.municipio || '';
+    document.getElementById(ELEMENTS.PERFIL_COMPLEMENTO).value = data.complemento || '';
 
     // Atualiza opções do regime baseado no que está salvo
     if (data.opcao_pelo_simples === true) {
       updateRegimeOptions(true);
     } else if (data.regime) {
       updateRegimeOptions(false);
-      document.getElementById('regimePerfil').value = data.regime;
+      document.getElementById(ELEMENTS.PERFIL_REGIME).value = data.regime;
     }
 
     logger.success(MODULE, 'Formulário preenchido com sucesso', {
@@ -59,20 +60,20 @@ export function fillPerfilForm() {
  * Coleta dados do formulário
  */
 function getFormData() {
-  const regime = document.getElementById('regimePerfil').value;
+  const regime = document.getElementById(ELEMENTS.PERFIL_REGIME).value;
   const opcaoPeloSimples = regime === 'Simples';
 
   return {
-    cnpj: document.getElementById('cnpj').value,
-    razao_social: document.getElementById('razaoSocial').value,
-    nome_fantasia: document.getElementById('nomeFantasia').value,
-    cep: document.getElementById('cep').value,
-    uf: document.getElementById('uf').value,
-    logradouro: document.getElementById('logradouro').value,
-    numero: document.getElementById('numero').value,
-    bairro: document.getElementById('bairro').value,
-    municipio: document.getElementById('municipio').value,
-    complemento: document.getElementById('complemento').value,
+    cnpj: document.getElementById(ELEMENTS.PERFIL_CNPJ).value,
+    razao_social: document.getElementById(ELEMENTS.PERFIL_RAZAO_SOCIAL).value,
+    nome_fantasia: document.getElementById(ELEMENTS.PERFIL_NOME_FANTASIA).value,
+    cep: document.getElementById(ELEMENTS.PERFIL_CEP).value,
+    uf: document.getElementById(ELEMENTS.PERFIL_UF).value,
+    logradouro: document.getElementById(ELEMENTS.PERFIL_LOGRADOURO).value,
+    numero: document.getElementById(ELEMENTS.PERFIL_NUMERO).value,
+    bairro: document.getElementById(ELEMENTS.PERFIL_BAIRRO).value,
+    municipio: document.getElementById(ELEMENTS.PERFIL_MUNICIPIO).value,
+    complemento: document.getElementById(ELEMENTS.PERFIL_COMPLEMENTO).value,
     regime: regime,
     opcao_pelo_simples: opcaoPeloSimples
   };
@@ -83,8 +84,8 @@ function getFormData() {
  * @param {boolean} isOptanteSimples - Se a empresa é optante pelo Simples
  */
 function updateRegimeOptions(isOptanteSimples) {
-  const regimeSelect = document.getElementById('regimePerfil');
-  const regimeHelper = document.getElementById('regimeHelper');
+  const regimeSelect = document.getElementById(ELEMENTS.PERFIL_REGIME);
+  const regimeHelper = document.getElementById(ELEMENTS.PERFIL_REGIME_HELPER);
 
   if (!regimeSelect || !regimeHelper) {
     logger.warn(MODULE, 'Elementos de regime não encontrados no DOM');
@@ -128,20 +129,20 @@ function fillFieldsFromAPI(data) {
   logger.info(MODULE, 'Preenchendo campos com dados da API');
 
   try {
-    document.getElementById('razaoSocial').value = data.razao_social;
-    document.getElementById('nomeFantasia').value = data.nome_fantasia;
-    document.getElementById('cep').value = data.cep;
-    document.getElementById('uf').value = data.uf;
-    document.getElementById('logradouro').value = data.logradouro;
-    document.getElementById('numero').value = data.numero;
-    document.getElementById('bairro').value = data.bairro;
-    document.getElementById('municipio').value = data.municipio;
-    document.getElementById('complemento').value = data.complemento;
+    document.getElementById(ELEMENTS.PERFIL_RAZAO_SOCIAL).value = data.razao_social;
+    document.getElementById(ELEMENTS.PERFIL_NOME_FANTASIA).value = data.nome_fantasia;
+    document.getElementById(ELEMENTS.PERFIL_CEP).value = data.cep;
+    document.getElementById(ELEMENTS.PERFIL_UF).value = data.uf;
+    document.getElementById(ELEMENTS.PERFIL_LOGRADOURO).value = data.logradouro;
+    document.getElementById(ELEMENTS.PERFIL_NUMERO).value = data.numero;
+    document.getElementById(ELEMENTS.PERFIL_BAIRRO).value = data.bairro;
+    document.getElementById(ELEMENTS.PERFIL_MUNICIPIO).value = data.municipio;
+    document.getElementById(ELEMENTS.PERFIL_COMPLEMENTO).value = data.complemento;
 
     updateRegimeOptions(data.opcao_pelo_simples);
-    
+
     if (data.regime) {
-      document.getElementById('regimePerfil').value = data.regime;
+      document.getElementById(ELEMENTS.PERFIL_REGIME).value = data.regime;
     }
 
     logger.success(MODULE, 'Campos preenchidos com dados da API');
@@ -155,8 +156,8 @@ function fillFieldsFromAPI(data) {
  * Handler para consulta de CNPJ
  */
 async function handleConsultarCNPJ() {
-  const cnpjInput = document.getElementById('cnpj');
-  const consultarBtn = document.getElementById('consultarCNPJ');
+  const cnpjInput = document.getElementById(ELEMENTS.PERFIL_CNPJ);
+  const consultarBtn = document.getElementById(ELEMENTS.PERFIL_CONSULTAR_CNPJ);
 
   if (!cnpjInput || !consultarBtn) {
     logger.error(MODULE, 'Elementos de CNPJ não encontrados');
@@ -173,6 +174,8 @@ async function handleConsultarCNPJ() {
   logger.info(MODULE, 'Iniciando consulta de CNPJ', { cnpj });
   
   consultarBtn.disabled = true;
+  consultarBtn.classList.add('is-loading');
+  consultarBtn.setAttribute('aria-busy', 'true');
 
   // Mostra loading
   const loading = notify.loading(
@@ -205,6 +208,8 @@ async function handleConsultarCNPJ() {
     
   } finally {
     consultarBtn.disabled = false;
+    consultarBtn.classList.remove('is-loading');
+    consultarBtn.setAttribute('aria-busy', 'false');
   }
 }
 
@@ -282,16 +287,16 @@ function handleClearPerfil() {
 
   clearPerfilData();
 
-  document.getElementById('perfilForm')?.reset();
-  
+  document.getElementById(ELEMENTS.PERFIL_FORM)?.reset();
+
   // Restaura opções padrão do regime
-  const regimeSelect = document.getElementById('regimePerfil');
+  const regimeSelect = document.getElementById(ELEMENTS.PERFIL_REGIME);
   if (regimeSelect) {
     regimeSelect.innerHTML = `<option value=""></option>`;
     regimeSelect.disabled = false;
   }
 
-  const regimeHelper = document.getElementById('regimeHelper');
+  const regimeHelper = document.getElementById(ELEMENTS.PERFIL_REGIME_HELPER);
   if (regimeHelper) {
     regimeHelper.textContent = 'O regime será definido após consultar o CNPJ';
     regimeHelper.className = 'form-helper info';
@@ -311,11 +316,11 @@ function handleClearPerfil() {
 export function initializePerfilForm(onSuccess) {
   logger.info(MODULE, 'Inicializando formulário de perfil');
 
-  const cnpjInput = document.getElementById('cnpj');
-  const cepInput = document.getElementById('cep');
-  const consultarBtn = document.getElementById('consultarCNPJ');
-  const perfilForm = document.getElementById('perfilForm');
-  const perfilLimpar = document.getElementById('perfilLimpar');
+  const cnpjInput = document.getElementById(ELEMENTS.PERFIL_CNPJ);
+  const cepInput = document.getElementById(ELEMENTS.PERFIL_CEP);
+  const consultarBtn = document.getElementById(ELEMENTS.PERFIL_CONSULTAR_CNPJ);
+  const perfilForm = document.getElementById(ELEMENTS.PERFIL_FORM);
+  const perfilLimpar = document.getElementById(ELEMENTS.PERFIL_LIMPAR);
 
   // Formatação automática
   cnpjInput?.addEventListener('input', (e) => {

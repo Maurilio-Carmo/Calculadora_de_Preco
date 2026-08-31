@@ -61,7 +61,24 @@ export const ELEMENTS = {
   
   // Tema
   TOGGLE_THEME: 'menuTema',
-  THEME_ICON: 'themeIcon'
+  THEME_ICON: 'themeIcon',
+
+  // Formulário de perfil da loja
+  PERFIL_CNPJ: 'cnpj',
+  PERFIL_RAZAO_SOCIAL: 'razaoSocial',
+  PERFIL_NOME_FANTASIA: 'nomeFantasia',
+  PERFIL_CEP: 'cep',
+  PERFIL_UF: 'uf',
+  PERFIL_LOGRADOURO: 'logradouro',
+  PERFIL_NUMERO: 'numero',
+  PERFIL_BAIRRO: 'bairro',
+  PERFIL_MUNICIPIO: 'municipio',
+  PERFIL_COMPLEMENTO: 'complemento',
+  PERFIL_REGIME: 'regimePerfil',
+  PERFIL_REGIME_HELPER: 'regimeHelper',
+  PERFIL_FORM: 'perfilForm',
+  PERFIL_CONSULTAR_CNPJ: 'consultarCNPJ',
+  PERFIL_LIMPAR: 'perfilLimpar'
 };
 
 export const PATHS = {

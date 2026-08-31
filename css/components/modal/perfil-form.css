@@ -87,6 +87,24 @@
     display: block;
 }
 
+.input-icon-btn.is-loading svg {
+    opacity: 0;
+}
+
+.input-icon-btn.is-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin var(--duration-spin-fast) linear infinite;
+}
+
 .form-helper {
     display: block;
     margin-top: 6px;
