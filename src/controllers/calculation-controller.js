@@ -92,7 +92,6 @@ export function processCalculation() {
   const margem = Results.calcMargem(lucroBruto, precoVenda);
   const markup = Results.calcMarkup(precoVenda, precoCompra);
 
-  // Monta objeto com todos os valores
   const values = {
     precoCompra,
     margemDesejada,
@@ -117,7 +116,6 @@ export function processCalculation() {
     markup
   };
 
-  // Atualiza interface
   updateUI(values);
 
   return values;

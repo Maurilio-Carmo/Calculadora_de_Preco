@@ -64,6 +64,15 @@ export function removeFormatting(value) {
   return value.replace(/\D/g, '');
 }
 
+const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+
+/**
+ * Escapa caracteres HTML para inserção segura via innerHTML
+ */
+export function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, (c) => HTML_ESCAPES[c]);
+}
+
 /**
  * Formata CNPJ: 12.345.678/0001-90
  */

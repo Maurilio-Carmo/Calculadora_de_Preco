@@ -63,10 +63,3 @@ export function initializeTooltips() {
     }
   });
 }
-
-/**
- * Adiciona um novo tooltip dinamicamente
- */
-export function addTooltip(key, title, description) {
-  TOOLTIP_CONTENT[key] = { title, description };
-}

@@ -4,6 +4,8 @@
  * Sistema de notificações toast para feedback visual ao usuário
  */
 
+import { escapeHTML } from './formatters.js';
+
 const NOTIFICATION_TYPES = {
   SUCCESS: {
     icon: '✅',
@@ -84,8 +86,8 @@ class NotificationSystem {
     notification.innerHTML = `
       <div class="notification-icon">${config.icon}</div>
       <div class="notification-content">
-        ${title ? `<div class="notification-title">${title}</div>` : ''}
-        <div class="notification-message">${message}</div>
+        ${title ? `<div class="notification-title">${escapeHTML(title)}</div>` : ''}
+        <div class="notification-message">${escapeHTML(message)}</div>
       </div>
       <button class="notification-close" aria-label="Fechar">&times;</button>
       <div class="notification-progress"></div>
@@ -159,8 +161,8 @@ class NotificationSystem {
         </svg>
       </div>
       <div class="notification-content">
-        ${title ? `<div class="notification-title">${title}</div>` : ''}
-        <div class="notification-message">${message}</div>
+        ${title ? `<div class="notification-title">${escapeHTML(title)}</div>` : ''}
+        <div class="notification-message">${escapeHTML(message)}</div>
       </div>
     `;
 

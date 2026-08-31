@@ -90,22 +90,18 @@ class Logger {
     }
   }
 
-  /** @param {string} module @param {string} message @param {*} [data] */
   info(module, message, data = null) {
     this.log('INFO', module, message, data);
   }
 
-  /** @param {string} module @param {string} message @param {*} [data] */
   success(module, message, data = null) {
     this.log('SUCCESS', module, message, data);
   }
 
-  /** @param {string} module @param {string} message @param {*} [data] */
   warn(module, message, data = null) {
     this.log('WARN', module, message, data);
   }
 
-  /** @param {string} module @param {string} message @param {*} [error] */
   error(module, message, error = null) {
     const errorData = error ? {
       message: error.message,
@@ -116,7 +112,6 @@ class Logger {
     this.log('ERROR', module, message, errorData);
   }
 
-  /** @param {string} module @param {string} message @param {*} [data] */
   debug(module, message, data = null) {
     this.log('DEBUG', module, message, data);
   }

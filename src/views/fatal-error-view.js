@@ -1,6 +1,7 @@
 // views/fatal-error-view.js
 
 import { notify } from '../utils/notifications.js';
+import { escapeHTML } from '../utils/formatters.js';
 
 /**
  * Exibe mensagem de erro fatal com opção de recarregar
@@ -44,12 +45,12 @@ export function showFatalError({ title, message, technical, action = 'Recarregar
             stroke="#e53935" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <h2 style="margin: 0 0 12px; color: #333; text-align: center; font-size: 24px;">${title}</h2>
-      <p style="margin: 0 0 20px; color: #666; text-align: center; line-height: 1.6;">${message}</p>
+      <h2 style="margin: 0 0 12px; color: #333; text-align: center; font-size: 24px;">${escapeHTML(title)}</h2>
+      <p style="margin: 0 0 20px; color: #666; text-align: center; line-height: 1.6;">${escapeHTML(message)}</p>
       ${technical ? `
         <details style="margin: 0 0 20px; padding: 12px; background: #f5f5f5; border-radius: 6px; cursor: pointer;">
           <summary style="color: #666; font-size: 14px;">Detalhes técnicos</summary>
-          <pre style="margin: 12px 0 0; padding: 8px; background: white; border-radius: 4px; font-size: 12px; color: #e53935; overflow-x: auto;">${technical}</pre>
+          <pre style="margin: 12px 0 0; padding: 8px; background: white; border-radius: 4px; font-size: 12px; color: #e53935; overflow-x: auto;">${escapeHTML(technical)}</pre>
         </details>
       ` : ''}
       <button type="button" style="
@@ -59,7 +60,7 @@ export function showFatalError({ title, message, technical, action = 'Recarregar
         font-size: 16px; font-weight: 600;
         cursor: pointer; transition: background 0.2s;
       " onmouseover="this.style.background='#4890ff'" onmouseout="this.style.background='#5aa2ff'">
-        ${action}
+        ${escapeHTML(action)}
       </button>
     </div>
   `;

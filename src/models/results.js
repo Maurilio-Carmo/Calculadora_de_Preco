@@ -3,19 +3,7 @@
 import { toPercent } from '../utils/formatters.js';
 
 /**
- * Calcula o preço de venda
- * @param {number} cmv
- * @param {number} margemDesejada
- * @param {number} percVendaPisCofins
- * @param {number} percVendaICMS
- * @param {number} percReducaoICMSSaida
- * @param {number} percSimples
- * @param {number} percCBS
- * @param {number} percReducaoCBS
- * @param {number} percIBSUF
- * @param {number} percReducaoIBSUF
- * @param {number} percIBSMun
- * @returns {number} Preço de venda, ou Infinity se carga >= 100%
+ * Calcula o preço de venda; retorna Infinity se a carga tributária >= 100%
  */
 export function calcPrecoVenda(
   cmv,
@@ -75,15 +63,6 @@ export function calcFornecedorPagar(precoCompra, vST, vIPI) {
 
 /**
  * Calcula o lucro bruto
- * @param {number} precoVenda
- * @param {number} cmv
- * @param {number} vPisCofinsVenda
- * @param {number} vICMSVenda
- * @param {number} vSimplesVenda
- * @param {number} vCBSVenda
- * @param {number} vIBSUFVenda
- * @param {number} vIBSMunVenda
- * @returns {number}
  */
 export function calcLucroBruto(precoVenda, cmv, vPisCofinsVenda, vICMSVenda, vSimplesVenda, vCBSVenda, vIBSUFVenda, vIBSMunVenda) {
   return precoVenda - (cmv + vPisCofinsVenda + vICMSVenda + vSimplesVenda + vCBSVenda + vIBSUFVenda + vIBSMunVenda);
