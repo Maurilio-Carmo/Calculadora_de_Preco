@@ -46,9 +46,14 @@ export function updateUI(values) {
  */
 function updateElement(elementId, value) {
   const element = document.getElementById(elementId);
-  if (element) {
-    element.textContent = value;
-  }
+  if (!element) return;
+  if (element.textContent === value) return; // só anima em mudança real
+
+  element.textContent = value;
+
+  element.classList.remove('value-flash');
+  void element.offsetWidth; // força reflow, reinicia o flash em retrigger rápido
+  element.classList.add('value-flash');
 }
 
 /**

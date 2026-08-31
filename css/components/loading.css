@@ -100,3 +100,14 @@
     justify-content: center;
     padding: 40px;
 }
+
+/* Micro-flash em valores recalculados (frequency gate: mínimo, sem movimento) */
+@keyframes value-flash {
+    from { background-color: color-mix(in srgb, var(--accent) 18%, transparent); }
+    to   { background-color: transparent; }
+}
+
+.value-flash {
+    animation: value-flash var(--duration-fast) var(--ease-standard);
+    border-radius: var(--radius-small);
+}
