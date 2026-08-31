@@ -60,16 +60,18 @@ class NotificationSystem {
       return;
     }
 
-    const finalDuration = duration || config.duration;
+    const finalDuration = duration ?? config.duration;
     const notification = this.createNotification(config, title, message, finalDuration);
     
     this.container.appendChild(notification);
     this.notifications.push(notification);
 
-    // Remove após duração + tempo de fade
-    setTimeout(() => {
-      this.remove(notification);
-    }, finalDuration + 300);
+    // duration 0 = persiste até fechamento manual
+    if (finalDuration > 0) {
+      setTimeout(() => {
+        this.remove(notification);
+      }, finalDuration + 300);
+    }
 
     return notification;
   }

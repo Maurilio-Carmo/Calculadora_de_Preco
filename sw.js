@@ -10,7 +10,6 @@ const STATIC_ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './css/main.css',
   './css/base/variables.css',
   './css/base/reset.css',
   './src/main.js',

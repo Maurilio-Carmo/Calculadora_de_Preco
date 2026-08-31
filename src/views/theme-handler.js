@@ -27,15 +27,15 @@ export function initializeTheme() {
     const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME);
     const isDark = savedTheme === THEMES.DARK;
 
-    applyTheme(root, icon, isDark);
+    applyTheme(root, icon, isDark, btnTheme);
 
     btnTheme.addEventListener('click', () => {
         const nowDark = !root.hasAttribute('data-theme');
-        applyTheme(root, icon, nowDark);
+        applyTheme(root, icon, nowDark, btnTheme);
     });
 }
 
-function applyTheme(root, icon, dark) {
+function applyTheme(root, icon, dark, btnTheme) {
     if (dark) {
         root.setAttribute('data-theme', THEMES.DARK);
         localStorage.setItem(STORAGE_KEYS.THEME, THEMES.DARK);
@@ -45,4 +45,6 @@ function applyTheme(root, icon, dark) {
         localStorage.removeItem(STORAGE_KEYS.THEME);
         icon.innerHTML = MOON_ICON;
     }
+    btnTheme.setAttribute('aria-pressed', String(dark));
+    btnTheme.setAttribute('aria-label', dark ? 'Mudar para tema claro' : 'Mudar para tema escuro');
 }

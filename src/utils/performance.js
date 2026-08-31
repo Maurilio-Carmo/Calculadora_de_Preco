@@ -102,26 +102,6 @@ export function measureWebVitals() {
 }
 
 /**
- * Prefetch de recursos importantes
- */
-export function prefetchResources() {
-  const resources = [
-    './data/tributacoes.json',
-    './data/impostos_federais.json',
-    './data/faixas_simples_nacional.json'
-  ];
-  
-  resources.forEach(url => {
-    const link = document.createElement('link');
-    link.rel = 'prefetch';
-    link.href = url;
-    document.head.appendChild(link);
-  });
-  
-  logger.debug(MODULE, `Prefetch configurado para ${resources.length} recursos`);
-}
-
-/**
  * Inicializa todas as otimizações de performance
  */
 export function initializePerformanceOptimizations() {
@@ -129,8 +109,7 @@ export function initializePerformanceOptimizations() {
   
   addNativeLazyLoading();
   initializeContentVisibility();
-  prefetchResources();
-  
+
   // Mede Web Vitals apenas em modo debug
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('debug') === 'true') {

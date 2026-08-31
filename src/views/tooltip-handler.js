@@ -26,40 +26,46 @@ export function initializeTooltips() {
   const titleElement = document.getElementById('tooltipTitle');
   const descriptionElement = document.getElementById('tooltipDescription');
   const closeButton = document.querySelector('.tooltip-close');
-  
+  let lastFocused = null;
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    lastFocused?.focus();
+  };
+
   // Adiciona listeners às caixas de tooltip
   document.querySelectorAll('.tooltip-trigger').forEach(element => {
     element.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      
+
       const tooltipType = element.getAttribute('data-tooltip');
       const content = TOOLTIP_CONTENT[tooltipType];
-      
+
       if (content) {
         titleElement.textContent = content.title;
         descriptionElement.textContent = content.description;
         modal.classList.add('active');
+        lastFocused = document.activeElement;
+        closeButton.focus();
       }
     });
   });
-  
+
   // Fecha ao clicar no botão de fechar
-  closeButton.addEventListener('click', () => {
-    modal.classList.remove('active');
-  });
-  
+  closeButton.addEventListener('click', closeModal);
+
   // Fecha ao clicar fora do conteúdo
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-      modal.classList.remove('active');
+      closeModal();
     }
   });
-  
+
   // Fecha com a tecla ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
-      modal.classList.remove('active');
+      closeModal();
     }
   });
 }

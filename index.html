@@ -10,9 +10,25 @@
     <meta name="description" content="Forma Preço - formação de preço de venda com cálculo automático de tributos (PIS, COFINS, ICMS, Simples Nacional). Determine margem de lucro e preço ideal para seu negócio.">
     <meta name="keywords" content="calculadora de preço, formação de preço, cálculo de margem, tributação, PIS, COFINS, ICMS, Simples Nacional, lucro">
     <meta name="author" content="Maurilio Carmo">
-    
+    <link rel="canonical" href="https://maurilio-carmo.github.io/Forma-Preco/">
+
     <title>Forma Preço - Cálculo de Margem e Tributos</title>
-    
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Forma Preço - Cálculo de Margem e Tributos">
+    <meta property="og:description" content="Formação de preço de venda com cálculo automático de tributos (PIS, COFINS, ICMS, Simples Nacional). Determine margem de lucro e preço ideal para seu negócio.">
+    <meta property="og:url" content="https://maurilio-carmo.github.io/Forma-Preco/">
+    <meta property="og:image" content="https://maurilio-carmo.github.io/Forma-Preco/icons/app.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Forma Preço">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Forma Preço - Cálculo de Margem e Tributos">
+    <meta name="twitter:description" content="Formação de preço de venda com cálculo automático de tributos (PIS, COFINS, ICMS, Simples Nacional).">
+    <meta name="twitter:image" content="https://maurilio-carmo.github.io/Forma-Preco/icons/app.png">
+
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="./icons/favicons/favicon-96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./icons/favicons/favicon.svg" />
@@ -31,8 +47,37 @@
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#57b86a">
     
-    <!-- DNS Prefetch -->
+    <!-- DNS Prefetch / Preconnect -->
     <link rel="dns-prefetch" href="https://brasilapi.com.br">
+    <link rel="preconnect" href="https://brasilapi.com.br" crossorigin>
+
+    <!-- Preload dos dados de tributação (fetch inicia durante o parse do HTML) -->
+    <link rel="preload" href="data/tributacoes.json" as="fetch" crossorigin>
+    <link rel="preload" href="data/impostos_federais.json" as="fetch" crossorigin>
+    <link rel="preload" href="data/faixas_simples_nacional.json" as="fetch" crossorigin>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Forma Preço",
+      "url": "https://maurilio-carmo.github.io/Forma-Preco/",
+      "description": "Formação de preço de venda com cálculo automático de tributos (PIS, COFINS, ICMS, Simples Nacional).",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "inLanguage": "pt-BR",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Maurilio Carmo"
+      }
+    }
+    </script>
     
     <!-- Tema aplicado antes do primeiro paint para evitar flash -->
     <script>
@@ -41,8 +86,31 @@
       }
     </script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css" />
+    <!-- CSS (link tags em vez de @import — evita waterfall serial de requisições) -->
+    <link rel="stylesheet" href="css/base/variables.css" />
+    <link rel="stylesheet" href="css/base/reset.css" />
+    <link rel="stylesheet" href="css/layout/grid.css" />
+    <link rel="stylesheet" href="css/components/header.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+    <link rel="stylesheet" href="css/components/forms.css" />
+    <link rel="stylesheet" href="css/components/custom-select.css" />
+    <link rel="stylesheet" href="css/components/highlights.css" />
+    <link rel="stylesheet" href="css/components/results.css" />
+    <link rel="stylesheet" href="css/components/tooltips.css" />
+    <link rel="stylesheet" href="css/components/panels.css" />
+    <link rel="stylesheet" href="css/components/loading.css" />
+    <link rel="stylesheet" href="css/components/menu/menu-toggle.css" />
+    <link rel="stylesheet" href="css/components/menu/side-menu.css" />
+    <link rel="stylesheet" href="css/components/menu/menu-overlay.css" />
+    <link rel="stylesheet" href="css/components/modal/modal-base.css" />
+    <link rel="stylesheet" href="css/components/modal/perfil-form.css" />
+    <link rel="stylesheet" href="css/components/notifications/notification-base.css" />
+    <link rel="stylesheet" href="css/components/notifications/notification-animations.css" />
+    <link rel="stylesheet" href="css/components/notifications/notification-elements.css" />
+    <link rel="stylesheet" href="css/components/notifications/notification-types.css" />
+    <link rel="stylesheet" href="css/utilities/helpers.css" />
+    <link rel="stylesheet" href="css/utilities/responsive.css" />
+    <link rel="stylesheet" href="css/utilities/performance.css" />
 
     <!--
       Captura o beforeinstallprompt o mais cedo possível,

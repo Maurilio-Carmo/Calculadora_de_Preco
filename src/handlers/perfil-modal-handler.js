@@ -2,16 +2,20 @@
 
 import { fillPerfilForm, initializePerfilForm } from './perfil-form-handler.js';
 
+let lastFocused = null;
+
 /**
  * Abre o modal de perfil
  */
 export function openPerfilModal() {
   const modal = document.getElementById('perfilModal');
-  
+
   if (modal) {
+    lastFocused = document.activeElement;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     fillPerfilForm();
+    document.getElementById('perfilClose')?.focus();
   }
 }
 
@@ -20,10 +24,11 @@ export function openPerfilModal() {
  */
 export function closePerfilModal() {
   const modal = document.getElementById('perfilModal');
-  
+
   if (modal) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    lastFocused?.focus();
   }
 }
 

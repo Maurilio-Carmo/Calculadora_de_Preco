@@ -36,6 +36,7 @@ export function formatCurrency(value) {
  * Formata número como percentual
  */
 export function formatPercent(value) {
+  if (!isFinite(value)) return '— %';
   return `${value.toFixed(2)} %`;
 }
 
