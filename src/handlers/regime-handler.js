@@ -8,172 +8,123 @@ import { ELEMENTS } from '../config/constants.js';
  */
 export function setupRegimeVisibilityHandler(recalculateCallback) {
   const regimeSelect = document.getElementById(ELEMENTS.REGIME);
-  
-  // IDs dos campos que devem ser ocultados no Simples Nacional
+
+  // Campos de tributos: ocultados no Simples Nacional, com seu elemento de valor calculado
   const camposParaOcultar = [
-    'creditoPisCofins',
-    'creditoICMS',
-    'reducaoBCICMS',
-    'vendaPisCofins',
-    'vendaICMS',
-    'reducaoBCSaida'
+    { inputId: 'creditoPisCofins', valorId: 'valorCreditoPisCofins' },
+    { inputId: 'creditoICMS', valorId: 'valorCreditoICMS' },
+    { inputId: 'reducaoBCICMS', valorId: null },
+    { inputId: 'vendaPisCofins', valorId: 'valorVendaPisCofins' },
+    { inputId: 'vendaICMS', valorId: 'valorVendaICMS' },
+    { inputId: 'reducaoBCSaida', valorId: null }
   ];
-  
-  // IDs dos campos que devem ser mostrados APENAS no Simples Nacional
+
+  // Campos mostrados APENAS no Simples Nacional
   const camposApenasSimples = [
-    'aliquotaSimplesNacional'
+    { inputId: 'aliquotaSimplesNacional', valorId: null }
   ];
-  
-  // IDs dos result-items que devem ser ocultados no Simples Nacional
+
+  // Result-items ocultados no Simples Nacional
   const resultItemsParaOcultar = [
-    'pisCofinsPagarDetalhe',
-    'icmsPagarDetalhe'
+    { inputId: 'pisCofinsPagarDetalhe', valorId: null },
+    { inputId: 'icmsPagarDetalhe', valorId: null }
   ];
-  
-  // IDs dos result-items que devem ser mostrados no Simples Nacional
+
+  // Result-items mostrados APENAS no Simples Nacional
   const resultItemsApenasSimples = [
-    'simplesPagarDetalhe'
+    { inputId: 'simplesPagarDetalhe', valorId: null }
   ];
-  
-  // Containers que devem ser ocultados no Simples
-  const containersParaOcultar = [
-    { id: 'tributacao', tipo: 'select-container' },
-    { id: 'impFederal', tipo: 'select-container' }
-  ];
-  
-  // Container que deve ser mostrado apenas no Simples
-  const containersApenasSimples = [
-    { id: 'faixaSimples', tipo: 'select-container' }
-  ];
-  
+
+  // Containers de select ocultados no Simples
+  const containersParaOcultar = ['tributacao', 'impFederal'];
+
+  // Container de select mostrado apenas no Simples
+  const containersApenasSimples = ['faixaSimples'];
+
+  /**
+   * Oculta ou mostra um grupo de campos/linhas, limpando o valor quando ocultos
+   */
+  function toggleLinhaVisibility(campos, shouldHide) {
+    campos.forEach(({ inputId, valorId }) => {
+      const input = document.getElementById(inputId);
+      const linha = input?.closest('.linha');
+      if (!linha) return;
+
+      linha.classList.toggle('hidden-regime', shouldHide);
+
+      if (shouldHide) {
+        if (input) input.value = '';
+        if (valorId) {
+          const valorElement = document.getElementById(valorId);
+          if (valorElement) valorElement.textContent = 'R$ 0,00';
+        }
+      }
+    });
+  }
+
+  /**
+   * Oculta ou mostra um grupo de result-items, limpando o texto quando ocultos
+   */
+  function toggleResultItemVisibility(itens, shouldHide) {
+    itens.forEach(({ inputId }) => {
+      const elemento = document.getElementById(inputId);
+      const resultItem = elemento?.closest('.result-item');
+      if (!resultItem) return;
+
+      resultItem.classList.toggle('hidden-regime', shouldHide);
+      if (shouldHide && elemento) elemento.textContent = 'R$ 0,00';
+    });
+  }
+
+  /**
+   * Oculta ou mostra um grupo de containers de select
+   */
+  function toggleContainerVisibility(ids, shouldHide, { disableSelect = false } = {}) {
+    ids.forEach(id => {
+      const select = document.getElementById(id);
+      const container = select?.parentElement;
+      if (!container) return;
+
+      container.style.display = shouldHide ? 'none' : 'flex';
+
+      if (select) {
+        if (shouldHide) {
+          select.value = '';
+          if (disableSelect) select.disabled = true;
+        } else if (disableSelect) {
+          select.disabled = false;
+        }
+      }
+    });
+  }
+
   /**
    * Atualiza a visibilidade dos campos baseado no regime
    */
   function atualizarVisibilidadeCampos() {
     const regime = regimeSelect.value;
     const isSimplesNacional = regime === 'Simples';
-    
-    // Oculta/mostra campos de tributos
-    camposParaOcultar.forEach(campoId => {
-      const input = document.getElementById(campoId);
-      const linha = input?.closest('.linha');
-      
-      if (linha) {
-        if (isSimplesNacional) {
-          // Adiciona classe para ocultar
-          linha.classList.add('hidden-regime');
-          if (input) input.value = '';
-          
-          const valorId = `valor${campoId.charAt(0).toUpperCase() + campoId.slice(1)}`;
-          const valorElement = document.getElementById(valorId);
-          if (valorElement) valorElement.textContent = 'R$ 0,00';
-        } else {
-          // Remove classe para mostrar novamente
-          linha.classList.remove('hidden-regime');
-        }
-      }
-    });
-    
-    // Mostra campos apenas para Simples Nacional
-    camposApenasSimples.forEach(campoId => {
-      const input = document.getElementById(campoId);
-      const linha = input?.closest('.linha');
-      
-      if (linha) {
-        if (isSimplesNacional) {
-          linha.classList.remove('hidden-regime');
-        } else {
-          linha.classList.add('hidden-regime');
-          if (input) input.value = '';
-          
-          const valorId = `valor${campoId.charAt(0).toUpperCase() + campoId.slice(1)}`;
-          const valorElement = document.getElementById(valorId);
-          if (valorElement) valorElement.textContent = 'R$ 0,00';
-        }
-      }
-    });
-    
-    // Gerencia containers dos selects principais
-    containersParaOcultar.forEach(({ id }) => {
-      const select = document.getElementById(id);
-      const container = select?.parentElement;
-      
-      if (container) {
-        if (isSimplesNacional) {
-          container.style.display = 'none';
-          if (select) {
-            select.disabled = true;
-            select.value = '';
-          }
-        } else {
-          container.style.display = 'flex';
-          if (select) select.disabled = false;
-        }
-      }
-    });
-    
-    // Gerencia container da faixa do Simples
-    containersApenasSimples.forEach(({ id }) => {
-      const select = document.getElementById(id);
-      const container = select?.parentElement;
-      
-      if (container) {
-        if (isSimplesNacional) {
-          container.style.display = 'flex';
-        } else {
-          container.style.display = 'none';
-          if (select) select.value = '';
-        }
-      }
-    });
-    
-    // Oculta/mostra result-items nos resultados
-    resultItemsParaOcultar.forEach(itemId => {
-      const elemento = document.getElementById(itemId);
-      const resultItem = elemento?.closest('.result-item');
-      
-      if (resultItem) {
-        if (isSimplesNacional) {
-          // Adiciona classe para ocultar
-          resultItem.classList.add('hidden-regime');
-          
-          // Limpa o valor
-          if (elemento) {
-            elemento.textContent = 'R$ 0,00';
-          }
-        } else {
-          // Remove classe para mostrar novamente
-          resultItem.classList.remove('hidden-regime');
-        }
-      }
-    });
-    
-    // Mostra result-items apenas para Simples Nacional
-    resultItemsApenasSimples.forEach(itemId => {
-      const elemento = document.getElementById(itemId);
-      const resultItem = elemento?.closest('.result-item');
-      
-      if (resultItem) {
-        if (isSimplesNacional) {
-          resultItem.classList.remove('hidden-regime');
-        } else {
-          resultItem.classList.add('hidden-regime');
-          if (elemento) elemento.textContent = 'R$ 0,00';
-        }
-      }
-    });
-    
+
+    toggleLinhaVisibility(camposParaOcultar, isSimplesNacional);
+    toggleLinhaVisibility(camposApenasSimples, !isSimplesNacional);
+
+    toggleContainerVisibility(containersParaOcultar, isSimplesNacional, { disableSelect: true });
+    toggleContainerVisibility(containersApenasSimples, !isSimplesNacional);
+
+    toggleResultItemVisibility(resultItemsParaOcultar, isSimplesNacional);
+    toggleResultItemVisibility(resultItemsApenasSimples, !isSimplesNacional);
+
     // Recalcula os valores após ocultar/mostrar campos
     if (recalculateCallback && typeof recalculateCallback === 'function') {
       recalculateCallback();
     }
   }
-  
+
   // Adiciona listener para mudanças no regime
   if (regimeSelect) {
     regimeSelect.addEventListener('change', atualizarVisibilidadeCampos);
   }
-  
+
   // Executa uma vez na inicialização para aplicar o estado correto
   atualizarVisibilidadeCampos();
 }
