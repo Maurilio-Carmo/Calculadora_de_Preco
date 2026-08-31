@@ -1,0 +1,147 @@
+/* ============================================================
+   CUSTOM SELECT (dropdown estilizado sobre <select> nativo)
+   ============================================================ */
+
+.custom-select-native {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.custom-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    background: var(--input-bg);
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--input-text);
+    min-width: 85px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.35s, color 0.35s, border-color 0.35s;
+}
+
+.custom-select-trigger:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.custom-select-trigger[aria-expanded="true"] {
+    border-color: var(--accent);
+}
+
+.custom-select-trigger-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.custom-select-arrow {
+    flex-shrink: 0;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--muted);
+    transition: transform 0.2s ease;
+}
+
+.custom-select-trigger[aria-expanded="true"] .custom-select-arrow {
+    transform: rotate(180deg);
+}
+
+.custom-select-trigger.is-disabled,
+.custom-select-trigger:disabled {
+    background-color: var(--input-disabled-bg);
+    cursor: not-allowed;
+    color: #999;
+    opacity: 0.6;
+}
+
+[data-theme="dark"] .custom-select-trigger.is-disabled,
+[data-theme="dark"] .custom-select-trigger:disabled {
+    color: #666;
+}
+
+.custom-select-trigger.is-loading {
+    background: linear-gradient(
+        90deg,
+        var(--skeleton-start) 0%,
+        var(--skeleton-middle) 50%,
+        var(--skeleton-start) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading var(--duration-shimmer) ease-in-out infinite;
+    color: var(--muted);
+}
+
+.custom-select-listbox {
+    position: fixed;
+    z-index: 10050;
+    max-height: 240px;
+    overflow-y: auto;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    box-shadow: var(--card-shadow);
+    padding: 4px;
+    margin: 0;
+    list-style: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    transform: var(--cs-flip, none) scale(0.96);
+    transform-origin: var(--cs-origin, top) center;
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-in),
+                transform var(--duration-fast) var(--ease-in);
+}
+
+.custom-select-listbox.is-open {
+    transform: var(--cs-flip, none) scale(1);
+    opacity: 1;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-spring);
+}
+
+.custom-select-listbox::-webkit-scrollbar {
+    display: none;
+}
+
+.custom-select-option {
+    padding: 8px 10px;
+    border-radius: var(--radius-small);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background 0.15s ease;
+}
+
+.custom-select-option.is-highlighted {
+    background: var(--badge-bg);
+}
+
+.custom-select-option.is-selected {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.custom-select-option[aria-disabled="true"] {
+    color: var(--muted);
+    cursor: not-allowed;
+}

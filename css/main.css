@@ -14,6 +14,7 @@
 @import './components/header.css';
 @import './components/footer.css';
 @import './components/forms.css';
+@import './components/custom-select.css';
 @import './components/highlights.css';
 @import './components/results.css';
 @import './components/tooltips.css';

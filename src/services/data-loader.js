@@ -3,12 +3,28 @@
 import { PATHS, ELEMENTS } from '../config/constants.js';
 import { logger } from '../utils/logger.js';
 import { notify } from '../utils/notifications.js';
+import { populateSelect } from '../views/select-renderer.js';
 
 const MODULE = 'DataLoader';
 
 let tributacaoData = [];
 let impostosFederaisData = [];
 let faixasSimplesNacionalData = [];
+
+/**
+ * Marca/desmarca um <select> como carregando (dispara shimmer no
+ * custom-select decorator via MutationObserver de atributos).
+ */
+function setSelectLoading(elementId, loading) {
+  const select = document.getElementById(elementId);
+  if (!select) return;
+  select.disabled = loading;
+  if (loading) {
+    select.dataset.loading = 'true';
+  } else {
+    delete select.dataset.loading;
+  }
+}
 
 /**
  * Carrega JSON com tratamento de erros
@@ -59,10 +75,11 @@ async function loadJSON(path, dataName) {
  * Carrega os dados de tributação
  */
 async function loadTributacoes() {
+  setSelectLoading(ELEMENTS.TRIBUTACAO, true);
   try {
     const data = await loadJSON(PATHS.TRIBUTACOES, 'tributações');
     tributacaoData = data;
-    populateTributacaoSelect(data);
+    populateSelect(ELEMENTS.TRIBUTACAO, data, { valueKey: 'tributacao', labelKey: 'tributacao' });
     return data;
   } catch (error) {
     notify.error(
@@ -70,6 +87,8 @@ async function loadTributacoes() {
       'Não foi possível carregar as opções de tributação. Algumas funcionalidades podem não funcionar.'
     );
     return [];
+  } finally {
+    setSelectLoading(ELEMENTS.TRIBUTACAO, false);
   }
 }
 
@@ -77,10 +96,11 @@ async function loadTributacoes() {
  * Carrega os dados de impostos federais
  */
 async function loadImpostosFederais() {
+  setSelectLoading(ELEMENTS.IMP_FEDERAL, true);
   try {
     const data = await loadJSON(PATHS.IMPOSTOS_FEDERAIS, 'impostos federais');
     impostosFederaisData = data;
-    populateImpostosFederaisSelect(data);
+    populateSelect(ELEMENTS.IMP_FEDERAL, data, { valueKey: 'imposto_federal', labelKey: 'imposto_federal' });
     return data;
   } catch (error) {
     notify.error(
@@ -88,6 +108,8 @@ async function loadImpostosFederais() {
       'Não foi possível carregar as opções de impostos federais.'
     );
     return [];
+  } finally {
+    setSelectLoading(ELEMENTS.IMP_FEDERAL, false);
   }
 }
 
@@ -95,10 +117,11 @@ async function loadImpostosFederais() {
  * Carrega os dados de faixas do Simples Nacional
  */
 async function loadFaixasSimplesNacional() {
+  setSelectLoading(ELEMENTS.FAIXA_SIMPLES, true);
   try {
     const data = await loadJSON(PATHS.FAIXAS_SIMPLES_NACIONAL, 'faixas do Simples Nacional');
     faixasSimplesNacionalData = data;
-    populateFaixasSimplesNacionalSelect(data);
+    populateSelect(ELEMENTS.FAIXA_SIMPLES, data, { valueKey: 'faixa', labelKey: 'faixa_descricao' });
     return data;
   } catch (error) {
     notify.error(
@@ -106,76 +129,9 @@ async function loadFaixasSimplesNacional() {
       'Não foi possível carregar as faixas do Simples Nacional.'
     );
     return [];
+  } finally {
+    setSelectLoading(ELEMENTS.FAIXA_SIMPLES, false);
   }
-}
-
-/**
- * Popula o select de tributação
- */
-function populateTributacaoSelect(data) {
-  const select = document.getElementById(ELEMENTS.TRIBUTACAO);
-  
-  if (!select) {
-    logger.warn(MODULE, 'Select de tributação não encontrado no DOM');
-    return;
-  }
-  
-  select.innerHTML = '<option value="">Selecione...</option>';
-  
-  data.forEach(item => {
-    const option = document.createElement('option');
-    option.value = item.tributacao;
-    option.textContent = item.tributacao;
-    select.appendChild(option);
-  });
-  
-  logger.debug(MODULE, `Select de tributação populado com ${data.length} opções`);
-}
-
-/**
- * Popula o select de impostos federais
- */
-function populateImpostosFederaisSelect(data) {
-  const select = document.getElementById(ELEMENTS.IMP_FEDERAL);
-  
-  if (!select) {
-    logger.warn(MODULE, 'Select de impostos federais não encontrado no DOM');
-    return;
-  }
-  
-  select.innerHTML = '<option value="">Selecione...</option>';
-  
-  data.forEach(item => {
-    const option = document.createElement('option');
-    option.value = item.imposto_federal;
-    option.textContent = item.imposto_federal;
-    select.appendChild(option);
-  });
-  
-  logger.debug(MODULE, `Select de impostos federais populado com ${data.length} opções`);
-}
-
-/**
- * Popula o select de faixas do Simples Nacional
- */
-function populateFaixasSimplesNacionalSelect(data) {
-  const select = document.getElementById('faixaSimples');
-  
-  if (!select) {
-    logger.warn(MODULE, 'Select de faixas do Simples não encontrado no DOM');
-    return;
-  }
-  
-  select.innerHTML = '<option value="">Selecione...</option>';
-  
-  data.forEach(item => {
-    const option = document.createElement('option');
-    option.value = item.faixa;
-    option.textContent = item.faixa_descricao;
-    select.appendChild(option);
-  });
-  
-  logger.debug(MODULE, `Select de faixas do Simples populado com ${data.length} opções`);
 }
 
 /**
